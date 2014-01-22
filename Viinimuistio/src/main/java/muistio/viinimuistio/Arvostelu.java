@@ -13,7 +13,10 @@ public class Arvostelu {
     private String kommentti;
     
     public Arvostelu(int arvosana) {
-        this.arvosana = arvosana;
+        if(arvosana<40 || arvosana>100) {
+            throw new IllegalArgumentException("Arvosanan tulee olla väliltä 40-100.");
+        }
+        this.arvosana = arvosana;        
     }
 
     public int getArvosana() {
