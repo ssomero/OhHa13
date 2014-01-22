@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Sonja
  */
-public class Viini {
+public class Viini implements Comparable<Viini>{
     
     private String nimi;
     private String lajike;
@@ -33,9 +33,14 @@ public class Viini {
 
     public List<Arvostelu> getArvostelut() {
         return arvostelut;
+    }   
+    public double getKeskiarvo() {
+        int summa = 0;
+        for (Arvostelu a : arvostelut) {
+            summa += a.getArvosana();
+        } return (double)summa/arvostelut.size();
     }
     
-
     public String getNimi() {
         return nimi;
     }
@@ -66,6 +71,22 @@ public class Viini {
 
     public void setVuosi(int vuosi) {
         this.vuosi = vuosi;
+    }
+
+    @Override
+    public int compareTo(Viini verrattava) {
+        if(verrattava.getKeskiarvo() > this.getKeskiarvo()) {
+            return -1;
+        } else if(verrattava.getKeskiarvo() < this.getKeskiarvo()) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+    
+    @Override
+    public String toString() {
+        return "Tyyppi: "+this.tyyppi+"\n"+"Nimi: "+this.nimi+"\n"+"Lajike: "+this.lajike+"\n"+"Vuosi: "+this.vuosi;
     }
     
     
