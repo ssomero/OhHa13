@@ -49,8 +49,10 @@ public class ViiniKellari {
         } return lista;
     }
     
-//    public List<Viini> haeParhausjärjestyksessa() {
-//        
+////    public List<Viini> haeParhausjärjestyksessa() {
+////        for (Viini v : viinit) {
+////            
+////        }
 //        
 //    }
 }
