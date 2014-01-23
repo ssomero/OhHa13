@@ -4,3 +4,4 @@
 15.1.2013 aihem‰‰rittely 0,5h
 21.1.2013 luokkakaavio + koodaus 1,5h
 22.1.2013 koodausta 2,5h
+23.1.2013 koodausta ja testausta 4h
