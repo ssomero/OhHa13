@@ -31,7 +31,7 @@ public class ViiniTest {
     
     @Before
     public void setUp() {
-        viini = new Viini("EstEstEst", "valkoviini");
+        viini = new Viini("valkoviini", "EstEstEst", "laji", "suomi", "2012");
     }
     
     @After
@@ -49,16 +49,29 @@ public class ViiniTest {
     }
     
     @Test
+    public void konstruktoriAsettaaParametriinOikeanLajikkeen() {
+        assertEquals("laji", viini.getLajike());
+    }
+    
+    @Test
+    public void konstruktoriAsettaaParametriinOikeanVuoden() {
+        assertEquals("2012", viini.getVuosi());
+    }
+    
+    @Test
+    public void konstruktoriAsettaaParametriinOikeanMaan() {
+        assertEquals("suomi", viini.getMaa());
+    }
+    
+    @Test
     public void konstruktoriLuoViinilleTyhjanArvostelulistan() {
         assertTrue(viini.getArvostelut().isEmpty());
     }
     
     @Test
     public void toStringToimii() {
-        viini.setLajike("chardonnay");
-        viini.setMaa("Italia");
-        viini.setVuosi(2012);
-        assertEquals("Tyyppi: valkoviini\nNimi: EstEstEst\nLajike: chardonnay\nVuosi: 2012", viini.toString());
+        
+        assertEquals("Tyyppi: valkoviini\nNimi: EstEstEst\nLajike: laji\nMaa: suomi\nVuosi: 2012", viini.toString());
     }
     
     @Test
@@ -87,7 +100,7 @@ public class ViiniTest {
     
     @Test
     public void compareToToimii1() {
-        Viini viini2 = new Viini("Blue Nun", "valkoviini");
+        Viini viini2 = new Viini("valkoviini", "Blue Nun", "laji2", "italia", "2001");
         viini2.lisaaArvostelu(new Arvostelu(89));
         viini2.lisaaArvostelu(new Arvostelu(70));
         viini.lisaaArvostelu(new Arvostelu(70));
@@ -96,7 +109,7 @@ public class ViiniTest {
     }
     @Test(expected=IllegalArgumentException.class)
     public void compareToToimii2() {
-        Viini viini2 = new Viini("Blue Nun", "valkoviini");
+        Viini viini2 = new Viini("valkoviini", "Blue Nun", "laji2", "italia", "2001");
         viini2.lisaaArvostelu(new Arvostelu(50));
         viini2.lisaaArvostelu(new Arvostelu(50));
         viini2.lisaaArvostelu(new Arvostelu(10));

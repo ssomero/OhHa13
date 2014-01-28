@@ -16,13 +16,16 @@ public class Viini implements Comparable<Viini> {
     private String nimi;
     private String lajike;
     private String maa;
-    private int vuosi;
+    private String vuosi;
     private String tyyppi;
     private List<Arvostelu> arvostelut;
 
-    public Viini(String nimi, String tyyppi) {
-        this.nimi = nimi;
+    public Viini(String tyyppi, String nimi, String lajike, String maa, String vuosi) {
         this.tyyppi = tyyppi;
+        this.nimi = nimi;
+        this.lajike = lajike;
+        this.maa = maa;
+        this.vuosi = vuosi;
         this.arvostelut = new ArrayList<>();
     }
 
@@ -54,7 +57,7 @@ public class Viini implements Comparable<Viini> {
         return maa;
     }
 
-    public int getVuosi() {
+    public String getVuosi() {
         return vuosi;
     }
 
@@ -70,7 +73,7 @@ public class Viini implements Comparable<Viini> {
         this.maa = maa;
     }
 
-    public void setVuosi(int vuosi) {
+    public void setVuosi(String vuosi) {
         this.vuosi = vuosi;
     }
 
@@ -87,6 +90,6 @@ public class Viini implements Comparable<Viini> {
 
     @Override
     public String toString() {
-        return "Tyyppi: " + this.tyyppi + "\n" + "Nimi: " + this.nimi + "\n" + "Lajike: " + this.lajike + "\n" + "Vuosi: " + this.vuosi;
+        return "Tyyppi: " + this.tyyppi + "\n" + "Nimi: " + this.nimi + "\n" + "Lajike: " + this.lajike + "\n" + "Maa: " + this.maa + "\n" + "Vuosi: " + this.vuosi;
     }
 }

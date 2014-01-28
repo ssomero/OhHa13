@@ -5,6 +5,7 @@
 package muistio.viinimuistio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -49,10 +50,8 @@ public class ViiniKellari {
         } return lista;
     }
     
-////    public List<Viini> haeParhausjärjestyksessa() {
-////        for (Viini v : viinit) {
-////            
-////        }
-//        
-//    }
+    public List<Viini> haeParhausjärjestyksessa() {
+        Collections.sort(viinit);
+        return viinit;        
+    }
 }

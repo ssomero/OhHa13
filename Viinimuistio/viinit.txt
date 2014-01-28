@@ -1,0 +1,2 @@
+tyyppi:nimi:lajike:maa:vuosi
+puna:blue nun:pöö:muumaa:2001
