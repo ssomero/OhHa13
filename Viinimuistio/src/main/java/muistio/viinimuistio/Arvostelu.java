@@ -31,5 +31,9 @@ public class Arvostelu {
         this.kommentti = kommentti;
     }
     
+    public String getTiedostomuoto() {
+        return this.arvosana+":"+this.kommentti;
+    }
+    
     
 }

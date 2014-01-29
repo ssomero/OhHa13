@@ -54,4 +54,8 @@ public class ViiniKellari {
         Collections.sort(viinit);
         return viinit;        
     }
+    
+    public List<Viini> listaaViinit() {
+        return viinit;
+    }
 }

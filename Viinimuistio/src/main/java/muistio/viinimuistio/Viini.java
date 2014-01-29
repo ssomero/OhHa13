@@ -76,6 +76,10 @@ public class Viini implements Comparable<Viini> {
     public void setVuosi(String vuosi) {
         this.vuosi = vuosi;
     }
+    
+    public String getTiedostomuoto() {
+        return this.tyyppi+":"+this.nimi+":"+this.lajike+":"+this.maa+":"+this.vuosi;
+    }
 
     @Override
     public int compareTo(Viini verrattava) {
@@ -87,7 +91,7 @@ public class Viini implements Comparable<Viini> {
             return 0;
         }
     }
-
+    
     @Override
     public String toString() {
         return "Tyyppi: " + this.tyyppi + "\n" + "Nimi: " + this.nimi + "\n" + "Lajike: " + this.lajike + "\n" + "Maa: " + this.maa + "\n" + "Vuosi: " + this.vuosi;

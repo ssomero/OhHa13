@@ -18,24 +18,24 @@ import muistio.viinimuistio.ViiniKellari;
  * @author Sonja
  */
 public class TiedostoWelho {
-    
-    public static void main (String[] args) throws Exception {
+
+    public static void main(String[] args) throws Exception {
         ViiniKellari vk = new ViiniKellari();
         TiedostoWelho tw = new TiedostoWelho();
         tw.lueViinit();
     }
     private ViiniKellari viinikellari;
     private File tiedosto;
-    
+
     public TiedostoWelho() {
         this.viinikellari = new ViiniKellari();
         this.tiedosto = new File("viinit.txt");
     }
-    
+
     public ViiniKellari lueViinit() throws Exception {
         try (Scanner lukija = new Scanner(tiedosto)) {
-            while(lukija.hasNextLine()) {
-                String rivi = lukija.nextLine();                
+            while (lukija.hasNextLine()) {
+                String rivi = lukija.nextLine();
                 String[] osat = rivi.split(":");
                 String tyyppi = osat[0];
                 String nimi = osat[1];
@@ -43,19 +43,27 @@ public class TiedostoWelho {
                 String vuosi = osat[3];
                 String maa = osat[4];
                 Viini viini = new Viini(tyyppi, nimi, lajike, vuosi, maa);
-                viinikellari.lisaaViini(viini);                
+                viinikellari.lisaaViini(viini);
             }
-        } return viinikellari;
-        
-    }
-    
-    public void kirjoita() throws Exception{
-        try {
-            FileWriter kirjoittaja = new FileWriter("viinit.txt");
-        } catch (IOException ex) {
-            ;
         }
-        
+        return viinikellari;
+
+    }
+
+//    public Arvostelu lueArvostelu()
+    public void kirjoitaViini() throws IOException {
+
+        FileWriter kirjoittaja = new FileWriter("viinit.txt");
+
+        for (Viini viini : viinikellari.listaaViinit()) {
+            kirjoittaja.write(viini.getTiedostomuoto());
+        }
+        kirjoittaja.close();
+
     }
     
+    public void kirjoitaArvostelu() throws IOException {
+        FileWriter kirjoittaja = new FileWriter("arvostelut.txt");
+        
+    }
 }
