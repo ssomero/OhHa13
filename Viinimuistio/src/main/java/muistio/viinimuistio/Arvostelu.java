@@ -35,4 +35,14 @@ public class Arvostelu {
     public String getTiedostomuoto() {
         return this.arvosana + ":" + this.kommentti;
     }
+    
+    @Override
+    public String toString() {
+        String arvio="";
+        if(getKommentti()==null) {
+            arvio += "Arvosana: "+this.arvosana+"\nKommentti: ";
+        } else {
+            arvio += "Arvosana: "+this.arvosana+"\nKommentti: "+this.kommentti;
+        } return arvio;
+    }
 }

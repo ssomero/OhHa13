@@ -39,6 +39,13 @@ public class Viini implements Comparable<Viini> {
     public List<Arvostelu> getArvostelut() {
         return arvostelut;
     }
+    
+    public String stringArvostelut() {
+        String arviot = "";
+        for (Arvostelu arvostelu : arvostelut) {
+            arviot += arvostelu.toString()+"\n\n";
+        } return arviot;
+    }
 
     public double getKeskiarvo() {
         int summa = 0;

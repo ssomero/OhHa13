@@ -24,13 +24,14 @@ public class TiedostoWelho {
     public static void main(String[] args) throws Exception {
         ViiniKellari vk = new ViiniKellari();
         TiedostoWelho tw = new TiedostoWelho();
-        tw.lueViinit();
+        vk = tw.lueViinit();
+        Viini vino = vk.haeNimenMukaan("Blue nun").get(0);
         tw.lueArvostelut();
+        System.out.println(vino.stringArvostelut());
     }
     private ViiniKellari viinikellari;
     private File viinitiedosto;
     private File arviotiedosto;
-    
 
     public TiedostoWelho() {
         this.viinikellari = new ViiniKellari();
@@ -40,57 +41,56 @@ public class TiedostoWelho {
 
     public ViiniKellari lueViinit() throws Exception {
         Scanner lukija = new Scanner(viinitiedosto);
-            while (lukija.hasNextLine()) {
-                String rivi = lukija.nextLine();
-                String[] osat = rivi.split(":");
-                String tyyppi = osat[0];
-                String nimi = osat[1];
-                String lajike = osat[2];
-                String vuosi = osat[3];
-                String maa = osat[4];
-                Viini viini = new Viini(tyyppi, nimi, lajike, vuosi, maa);
-                viinikellari.lisaaViini(viini);            
+        while (lukija.hasNextLine()) {
+            String rivi = lukija.nextLine();
+            String[] osat = rivi.split(":");
+            String tyyppi = osat[0];
+            String nimi = osat[1];
+            String lajike = osat[2];
+            String vuosi = osat[3];
+            String maa = osat[4];
+            Viini viini = new Viini(tyyppi, nimi, lajike, vuosi, maa);
+            viinikellari.lisaaViini(viini);
         }
         return viinikellari;
 
     }
-    
-    
+
     //liian pitkä metodi, yritetään pilkkoa! jos esim pelkkä lue()? foresta oma metodi?
     public ViiniKellari lueArvostelut() throws FileNotFoundException {
         Scanner lukija = new Scanner(arviotiedosto);
-            while (lukija.hasNextLine()) {
-                String rivi = lukija.nextLine();
-                String[] osat = rivi.split(":");
-                String nimi = osat[0];
-                String arvosanastring = osat[1];
-//                int arvosana = Integer.parseInt(arvosanastring);
-                String kommentti = osat[2];
-                Viini arvosteltava=null;
-                for (Viini viini : viinikellari.listaaViinit()) {
-                    if(viini.getNimi().equals(nimi)) {
-                        arvosteltava = viini;
-                    }
+        while (lukija.hasNextLine()) {
+            String rivi = lukija.nextLine();
+            String[] osat = rivi.split(":");
+            String nimi = osat[0];
+            String arvosanastring = osat[1];
+            String kommentti = "";
+            if (osat.length > 2) {
+                kommentti = osat[2];
+            }
+            Viini arvosteltava = null;
+            for (Viini viini : viinikellari.listaaViinit()) {
+                if (viini.getNimi().equals(nimi)) {
+                    arvosteltava = viini;
                 }
-                if(arvosteltava==null) {
-                    continue;
-                }
-                Arvostelu arvostelu = new Arvostelu(Integer.parseInt(arvosanastring));
-                if(kommentti.isEmpty()) {
-                    arvostelu.setKommentti("");
-                } else {
+            }
+            if (arvosteltava == null) {
+                continue;
+            }
+
+            Arvostelu arvostelu = new Arvostelu(Integer.parseInt(arvosanastring));
+            if (kommentti.isEmpty()) {
+                arvostelu.setKommentti("");
+            } else {
                 arvostelu.setKommentti(kommentti);
-                }
-                arvosteltava.lisaaArvostelu(arvostelu);
-            } 
-            System.out.println(viinikellari);
-            return viinikellari;
+            }
+            arvosteltava.lisaaArvostelu(arvostelu);
+        }
+
+        return viinikellari;
     }
-        
-               
 
     //mitä jos kommenttikenttä on tyhjä? kirjottaessa/lukiessa tutkitaan jos on tyhjä ja esim. laitetaan tyhjä merkkijono
-    
     //luetaanko arvosanat tiedostossa int vai String muuttujina? voi muuttaa splitissä tms int:ksi.(integer.parseInt)
 //    
     public void kirjoitaViini() throws IOException {
@@ -104,8 +104,6 @@ public class TiedostoWelho {
 
     }
 
-    
-    
     public void kirjoitaArvostelu() throws IOException {
         FileWriter kirjoittaja = new FileWriter("arvostelut.txt");
         for (Viini viinit : viinikellari.listaaViinit()) {
@@ -113,5 +111,4 @@ public class TiedostoWelho {
         }
         kirjoittaja.close();
     }
-        
 }
