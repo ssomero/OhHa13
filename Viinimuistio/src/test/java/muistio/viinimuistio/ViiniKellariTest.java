@@ -4,6 +4,7 @@
  */
 package muistio.viinimuistio;
 
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -68,11 +69,27 @@ public class ViiniKellariTest {
         assertEquals(1, vk.listaaViinit().size());
     }
     
+     @Test
+     public void haeNimenMukaanToimii() {
+         vk.lisaaViini(new Viini("tyyppi", "nimi", "laji", "maa", "vuosi"));
+         vk.lisaaViini(new Viini("tyyppi2", "nimi2", "laji2", "maa2", "vuosi2"));
+         vk.lisaaViini(new Viini("tyyppi1", "nimi2", "laji3", "maa2", "vuosi2"));         
+         assertEquals("nimi2", this.vk.haeNimenMukaan("nimi2").get(0).getNimi());
+     }
+     
+     @Test
+     public void haeMaanMukaanToimii() {
+         vk.lisaaViini(new Viini("tyyppi", "nimi", "laji", "maa", "vuosi"));
+         vk.lisaaViini(new Viini("tyyppi2", "nimi2", "laji2", "maa2", "vuosi2"));
+         vk.lisaaViini(new Viini("tyyppi1", "nimi2", "laji3", "maa2", "vuosi2"));         
+         assertEquals("maa2", this.vk.haeMaanMukaan("maa2").get(1).getMaa());
+     }
+     
 //     @Test
-//     public void haeNimenMukaanToimii() {
+//     public void haeTyypinMukaanToimii() {
 //         vk.lisaaViini(new Viini("tyyppi", "nimi", "laji", "maa", "vuosi"));
 //         vk.lisaaViini(new Viini("tyyppi2", "nimi2", "laji2", "maa2", "vuosi2"));
 //         vk.lisaaViini(new Viini("tyyppi1", "nimi2", "laji3", "maa2", "vuosi2"));         
-//         assertEquals(, this.vk.haeNimenMukaan("nimi2"));
+//         assertEquals(new List<Viini>(), this.vk.haeTyypinMukaan("tyyppi3"));
 //     }
 }

@@ -58,6 +58,19 @@ public class ArvosteluTest {
         arvio.setKommentti("aivan liian makea, juomakelvoton");
         assertEquals("40:aivan liian makea, juomakelvoton", this.arvio.getTiedostomuoto());
     }
+    
+    @Test
+    public void toStringToimii() {
+        arvio = new Arvostelu(100);
+        assertEquals("Arvosana: 100\nKommentti: ", arvio.toString());
+    }
+    
+    @Test
+    public void toStringToimii2() {
+        arvio = new Arvostelu(40);
+        arvio.setKommentti("aika huono");
+        assertEquals("Arvosana: 40\nKommentti: aika huono", arvio.toString());
+    }
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
