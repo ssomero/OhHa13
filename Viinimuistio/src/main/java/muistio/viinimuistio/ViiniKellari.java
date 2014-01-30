@@ -26,9 +26,7 @@ public class ViiniKellari {
         }         
     }
 
-    public String getViini() {
-        return this.toString();
-    }
+    
     
 
     public List<Viini> haeNimenMukaan(String nimi) {
@@ -69,5 +67,13 @@ public class ViiniKellari {
 
     public List<Viini> listaaViinit() {
         return viinit;
+    }
+    
+    public void poistaViini(Viini viini) {
+        for (Viini v : viinit) {
+            if(v.equals(viini)) {
+                viinit.remove(v);
+            }
+        }
     }
 }

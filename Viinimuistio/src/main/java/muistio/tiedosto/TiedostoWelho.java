@@ -25,6 +25,7 @@ public class TiedostoWelho {
         ViiniKellari vk = new ViiniKellari();
         TiedostoWelho tw = new TiedostoWelho();
         tw.lueViinit();
+        tw.lueArvostelut();
     }
     private ViiniKellari viinikellari;
     private File viinitiedosto;
@@ -54,24 +55,37 @@ public class TiedostoWelho {
 
     }
     
-//    public ViiniKellari lueArvostelut() throws FileNotFoundException {
-//        Scanner lukija = new Scanner(arviotiedosto);
-//            while (lukija.hasNextLine()) {
-//                String rivi = lukija.nextLine();
-//                String[] osat = rivi.split(":");
-//                String nimi = osat[0];
-//                String arvosanastring = osat[1];
+    
+    //liian pitkä metodi, yritetään pilkkoa! jos esim pelkkä lue()? foresta oma metodi?
+    public ViiniKellari lueArvostelut() throws FileNotFoundException {
+        Scanner lukija = new Scanner(arviotiedosto);
+            while (lukija.hasNextLine()) {
+                String rivi = lukija.nextLine();
+                String[] osat = rivi.split(":");
+                String nimi = osat[0];
+                String arvosanastring = osat[1];
 //                int arvosana = Integer.parseInt(arvosanastring);
-//                String kommentti = osat[2];
-//                Arvostelu arvostelu = new Arvostelu(arvosana);
-//                if(kommentti.isEmpty()) {
-//                    arvostelu.setKommentti("");
-//                } else {
-//                arvostelu.setKommentti(kommentti);
-//                }
-//                
-//            }
-//    }
+                String kommentti = osat[2];
+                Viini arvosteltava=null;
+                for (Viini viini : viinikellari.listaaViinit()) {
+                    if(viini.getNimi().equals(nimi)) {
+                        arvosteltava = viini;
+                    }
+                }
+                if(arvosteltava==null) {
+                    continue;
+                }
+                Arvostelu arvostelu = new Arvostelu(Integer.parseInt(arvosanastring));
+                if(kommentti.isEmpty()) {
+                    arvostelu.setKommentti("");
+                } else {
+                arvostelu.setKommentti(kommentti);
+                }
+                arvosteltava.lisaaArvostelu(arvostelu);
+            } 
+            System.out.println(viinikellari);
+            return viinikellari;
+    }
         
                
 
@@ -99,4 +113,5 @@ public class TiedostoWelho {
         }
         kirjoittaja.close();
     }
+        
 }

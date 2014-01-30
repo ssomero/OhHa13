@@ -44,18 +44,28 @@ public class ViiniKellariTest {
     }
     
     @Test
-    public void lisaaViiniLisaaViininListaan() {
+    public void lisaaViiniToimii() {
         vk.lisaaViini(new Viini("tyyppi", "nimi", "laji", "maa", "vuosi"));
         vk.lisaaViini(new Viini("tyyppi2", "nimi2", "laji2", "maa2", "vuosi2"));
         assertEquals(2, this.vk.listaaViinit().size());
     }
     
     @Test
-    public void lisaaViiniLisaaLisaamattomatViinitListaan () {
+    public void lisaaViiniToimii2 () {
         vk.lisaaViini(new Viini("tyyppi", "nimi", "laji", "maa", "vuosi"));
         vk.lisaaViini(new Viini("tyyppi2", "nimi2", "laji2", "maa2", "vuosi2"));
         vk.lisaaViini(new Viini("tyyppi", "nimi", "laji", "maa", "vuosi"));
         assertEquals(2, this.vk.listaaViinit().size());
+    }
+    
+    @Test
+    public void poistaViiniToimii() {
+        Viini viini1 = new Viini("tyyppi", "nimi", "laji", "maa", "vuosi");
+        Viini viini2 = new Viini("tyyppi2", "nimi2", "laji2", "maa2", "vuosi2");
+        vk.lisaaViini(viini1);
+        vk.lisaaViini(viini2);
+        vk.poistaViini(viini1);
+        assertEquals(1, vk.listaaViinit().size());
     }
     
 //     @Test

@@ -33,6 +33,8 @@ public class Viini implements Comparable<Viini> {
     public void lisaaArvostelu(Arvostelu a) {
         this.arvostelut.add(a);
     }
+    
+    
 
     public List<Arvostelu> getArvostelut() {
         return arvostelut;
