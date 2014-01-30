@@ -1,2 +1,2 @@
 tyyppi:nimi:lajike:maa:vuosi
-puna:blue nun:pöö:muumaa:2001
+puna:blue nun:rypäle:suomi:2001

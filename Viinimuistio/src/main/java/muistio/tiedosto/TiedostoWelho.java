@@ -50,6 +50,9 @@ public class TiedostoWelho {
 
     }
 
+    //mitä jos kommenttikenttä on tyhjä?
+    //onko viinit&arvostelut parempi olla eri tiedostoissa?
+    //luetaanko arvosanat tiedostossa int vai String muuttujina?
 //    public Arvostelu lueArvostelu()
     public void kirjoitaViini() throws IOException {
 
@@ -61,9 +64,14 @@ public class TiedostoWelho {
         kirjoittaja.close();
 
     }
+
+    
     
     public void kirjoitaArvostelu() throws IOException {
         FileWriter kirjoittaja = new FileWriter("arvostelut.txt");
-        
+        for (Viini viinit : viinikellari.listaaViinit()) {
+            kirjoittaja.write(viinit.getNimiJaArvosteluTiedostomuoto());
+        }
+        kirjoittaja.close();
     }
 }

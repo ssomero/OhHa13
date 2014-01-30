@@ -76,9 +76,21 @@ public class Viini implements Comparable<Viini> {
     public void setVuosi(String vuosi) {
         this.vuosi = vuosi;
     }
-    
+
     public String getTiedostomuoto() {
-        return this.tyyppi+":"+this.nimi+":"+this.lajike+":"+this.maa+":"+this.vuosi;
+        return this.tyyppi + ":" + this.nimi + ":" + this.lajike + ":" + this.maa + ":" + this.vuosi;
+    }
+
+    public String getNimiJaArvosteluTiedostomuoto() {
+        String arviot = "";
+        for (Arvostelu a : arvostelut) {
+            if(arvostelut.size()>1) {
+            arviot += this.nimi + ":" + a.getTiedostomuoto() + "\n";
+            } else if(arvostelut.size()==1) {
+                arviot = this.nimi + ":" + a.getTiedostomuoto();
+            } 
+            }
+        return arviot;
     }
 
     @Override
@@ -91,7 +103,7 @@ public class Viini implements Comparable<Viini> {
             return 0;
         }
     }
-    
+
     @Override
     public String toString() {
         return "Tyyppi: " + this.tyyppi + "\n" + "Nimi: " + this.nimi + "\n" + "Lajike: " + this.lajike + "\n" + "Maa: " + this.maa + "\n" + "Vuosi: " + this.vuosi;

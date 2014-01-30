@@ -16,80 +16,81 @@ import static org.junit.Assert.*;
  * @author Sonja
  */
 public class ViiniTest {
+
     Viini viini;
-    
+
     public ViiniTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         viini = new Viini("valkoviini", "EstEstEst", "laji", "suomi", "2012");
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     @Test
     public void konstruktoriAsettaaParametriinOikeanNimen() {
         assertEquals("EstEstEst", viini.getNimi());
     }
-    
+
     @Test
     public void konstruktoriAsettaaParametriinOikeanTyypin() {
         assertEquals("valkoviini", viini.getTyyppi());
     }
-    
+
     @Test
     public void konstruktoriAsettaaParametriinOikeanLajikkeen() {
         assertEquals("laji", viini.getLajike());
     }
-    
+
     @Test
     public void konstruktoriAsettaaParametriinOikeanVuoden() {
         assertEquals("2012", viini.getVuosi());
     }
-    
+
     @Test
     public void konstruktoriAsettaaParametriinOikeanMaan() {
         assertEquals("suomi", viini.getMaa());
     }
-    
+
     @Test
     public void konstruktoriLuoViinilleTyhjanArvostelulistan() {
         assertTrue(viini.getArvostelut().isEmpty());
     }
-    
+
     @Test
     public void toStringToimii() {
-        
+
         assertEquals("Tyyppi: valkoviini\nNimi: EstEstEst\nLajike: laji\nMaa: suomi\nVuosi: 2012", viini.toString());
     }
-    
+
     @Test
     public void metodiLisaaArvosteluLisaaArvostelunListaan() {
         viini.lisaaArvostelu(new Arvostelu(70));
         viini.lisaaArvostelu(new Arvostelu(40));
         viini.lisaaArvostelu(new Arvostelu(100));
-        
+
         assertEquals(3, viini.getArvostelut().size());
     }
-    
+
     @Test(expected = IllegalArgumentException.class)
     public void metodiLisaaArvosteluLisaaLuvattomanArvostelunListaan() {
         viini.lisaaArvostelu(new Arvostelu(10));
-        viini.lisaaArvostelu(new Arvostelu(50));        
+        viini.lisaaArvostelu(new Arvostelu(50));
         assertEquals(1, viini.getArvostelut().size());
     }
-    
+
     @Test
     public void getKeskiarvoToimii() {
         viini.lisaaArvostelu(new Arvostelu(40));
@@ -97,7 +98,7 @@ public class ViiniTest {
         viini.lisaaArvostelu(new Arvostelu(60));
         assertEquals(66.7, viini.getKeskiarvo(), 0.1);
     }
-    
+
     @Test
     public void compareToToimii1() {
         Viini viini2 = new Viini("valkoviini", "Blue Nun", "laji2", "italia", "2001");
@@ -107,7 +108,8 @@ public class ViiniTest {
         viini.lisaaArvostelu(new Arvostelu(100));
         assertEquals(1, viini.compareTo(viini2));
     }
-    @Test(expected=IllegalArgumentException.class)
+
+    @Test(expected = IllegalArgumentException.class)
     public void compareToToimii2() {
         Viini viini2 = new Viini("valkoviini", "Blue Nun", "laji2", "italia", "2001");
         viini2.lisaaArvostelu(new Arvostelu(50));
@@ -117,10 +119,23 @@ public class ViiniTest {
         viini.lisaaArvostelu(new Arvostelu(50));
         assertEquals(0, viini.compareTo(viini2));
     }
-    
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+
+    @Test
+    public void getTiedostomuotoToimii() {
+        assertEquals("valkoviini:EstEstEst:laji:suomi:2012", this.viini.getTiedostomuoto());
+    }
+
+    @Test
+    public void getNimiJaArvosteluTiedostomuotoToimii() {
+        Arvostelu a = new Arvostelu(66);
+        a.setKommentti("mukavan kuiva maku");
+        this.viini.lisaaArvostelu(a);
+        assertEquals("EstEstEst:66:mukavan kuiva maku", this.viini.getNimiJaArvosteluTiedostomuoto());
+    }
+
+    @Test
+    public void getNimiJaArvosteluTiedostomuotoToimiiJosEiArvosteluja() {
+
+        assertEquals("", this.viini.getNimiJaArvosteluTiedostomuoto());
+    }
 }

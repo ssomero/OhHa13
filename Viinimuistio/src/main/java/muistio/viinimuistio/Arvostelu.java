@@ -9,14 +9,15 @@ package muistio.viinimuistio;
  * @author Sonja
  */
 public class Arvostelu {
+
     private int arvosana;
     private String kommentti;
-    
+
     public Arvostelu(int arvosana) {
-        if(arvosana<40 || arvosana>100) {
+        if (arvosana < 40 || arvosana > 100) {
             throw new IllegalArgumentException("Arvosanan tulee olla väliltä 40-100.");
         }
-        this.arvosana = arvosana;        
+        this.arvosana = arvosana;
     }
 
     public int getArvosana() {
@@ -30,10 +31,8 @@ public class Arvostelu {
     public void setKommentti(String kommentti) {
         this.kommentti = kommentti;
     }
-    
+
     public String getTiedostomuoto() {
-        return this.arvosana+":"+this.kommentti;
+        return this.arvosana + ":" + this.kommentti;
     }
-    
-    
 }
