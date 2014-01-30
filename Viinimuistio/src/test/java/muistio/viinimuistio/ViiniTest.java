@@ -72,7 +72,7 @@ public class ViiniTest {
     @Test
     public void toStringToimii() {
 
-        assertEquals("Tyyppi: valkoviini\nNimi: EstEstEst\nLajike: laji\nMaa: suomi\nVuosi: 2012", viini.toString());
+        assertEquals("\nTyyppi: valkoviini\nNimi: EstEstEst\nLajike: laji\nMaa: suomi\nVuosi: 2012\n", viini.toString());
     }
 
     @Test

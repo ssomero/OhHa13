@@ -6,6 +6,7 @@ package muistio.viinimuistio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -102,10 +103,40 @@ public class Viini implements Comparable<Viini> {
         } else {
             return 0;
         }
+    }    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Viini other = (Viini) obj;
+        
+        if (!Objects.equals(this.nimi, other.nimi)) {
+            return false;
+        }
+        if (!Objects.equals(this.lajike, other.lajike)) {
+            return false;
+        }
+        if (!Objects.equals(this.maa, other.maa)) {
+            return false;
+        }
+        if (!Objects.equals(this.vuosi, other.vuosi)) {
+            return false;
+        }
+        if (!Objects.equals(this.tyyppi, other.tyyppi)) {
+            return false;
+        }
+        return true;
     }
+    
+   
 
     @Override
     public String toString() {
-        return "Tyyppi: " + this.tyyppi + "\n" + "Nimi: " + this.nimi + "\n" + "Lajike: " + this.lajike + "\n" + "Maa: " + this.maa + "\n" + "Vuosi: " + this.vuosi;
+        return "\nTyyppi: " + this.tyyppi + "\n" + "Nimi: " + this.nimi + "\n" + "Lajike: " + this.lajike + "\n" + "Maa: " + this.maa + "\n" + "Vuosi: " + this.vuosi+"\n";
     }
 }

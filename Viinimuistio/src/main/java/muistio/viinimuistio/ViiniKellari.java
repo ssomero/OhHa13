@@ -21,8 +21,15 @@ public class ViiniKellari {
     }
 
     public void lisaaViini(Viini v) {
-        this.viinit.add(v);
+        if(!viinit.contains(v)) {
+            this.viinit.add(v);
+        }         
     }
+
+    public String getViini() {
+        return this.toString();
+    }
+    
 
     public List<Viini> haeNimenMukaan(String nimi) {
         ArrayList<Viini> lista = new ArrayList<>();
@@ -40,8 +47,9 @@ public class ViiniKellari {
             if (v.getMaa().trim().equalsIgnoreCase(maa.trim())) {
                 lista.add(v);
             }
-        }
+        } 
         return lista;
+        
     }
 
     public List<Viini> haeTyypinMukaan(String tyyppi) {
