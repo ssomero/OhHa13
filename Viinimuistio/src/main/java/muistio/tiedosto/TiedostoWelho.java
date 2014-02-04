@@ -21,6 +21,11 @@ import muistio.viinimuistio.ViiniKellari;
  */
 public class TiedostoWelho {
 
+    /**
+     *
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         ViiniKellari vk = new ViiniKellari();
         TiedostoWelho tw = new TiedostoWelho();
@@ -33,12 +38,20 @@ public class TiedostoWelho {
     private File viinitiedosto;
     private File arviotiedosto;
 
+    /**
+     *
+     */
     public TiedostoWelho() {
         this.viinikellari = new ViiniKellari();
         this.viinitiedosto = new File("viinit.txt");
         this.arviotiedosto = new File("arvostelut.txt");
     }
 
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public ViiniKellari lueViinit() throws Exception {
         Scanner lukija = new Scanner(viinitiedosto);
         while (lukija.hasNextLine()) {
@@ -57,6 +70,11 @@ public class TiedostoWelho {
     }
 
     //liian pitkä metodi, yritetään pilkkoa! jos esim pelkkä lue()? foresta oma metodi?
+    /**
+     *
+     * @return
+     * @throws FileNotFoundException
+     */
     public ViiniKellari lueArvostelut() throws FileNotFoundException {
         Scanner lukija = new Scanner(arviotiedosto);
         while (lukija.hasNextLine()) {
@@ -93,6 +111,10 @@ public class TiedostoWelho {
     //mitä jos kommenttikenttä on tyhjä? kirjottaessa/lukiessa tutkitaan jos on tyhjä ja esim. laitetaan tyhjä merkkijono
     //luetaanko arvosanat tiedostossa int vai String muuttujina? voi muuttaa splitissä tms int:ksi.(integer.parseInt)
 //    
+    /**
+     *
+     * @throws IOException
+     */
     public void kirjoitaViini() throws IOException {
 
         FileWriter kirjoittaja = new FileWriter("viinit.txt");
@@ -104,6 +126,10 @@ public class TiedostoWelho {
 
     }
 
+    /**
+     *
+     * @throws IOException
+     */
     public void kirjoitaArvostelu() throws IOException {
         FileWriter kirjoittaja = new FileWriter("arvostelut.txt");
         for (Viini viinit : viinikellari.listaaViinit()) {

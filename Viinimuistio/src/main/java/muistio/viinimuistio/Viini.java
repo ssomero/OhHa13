@@ -21,6 +21,22 @@ public class Viini implements Comparable<Viini> {
     private String tyyppi;
     private List<Arvostelu> arvostelut;
 
+    /**
+     *Viinin tyyppi, puna- tai valkoviini 
+     * @param tyyppi
+     * 
+     * Viinin nimi
+     * @param nimi
+     * 
+     * Viinin rypälelajike
+     * @param lajike
+     * 
+     * Viinin valmistusmaa
+     * @param maa
+     * 
+     * Viinin valmistusvuosi
+     * @param vuosi
+     */
     public Viini(String tyyppi, String nimi, String lajike, String maa, String vuosi) {
         this.tyyppi = tyyppi;
         this.nimi = nimi;
@@ -30,16 +46,27 @@ public class Viini implements Comparable<Viini> {
         this.arvostelut = new ArrayList<>();
     }
 
+    /**
+     *Metodi lisää parametrina olleen arvostelun viinin arvosteluihin.
+     * @param a
+     */
     public void lisaaArvostelu(Arvostelu a) {
         this.arvostelut.add(a);
     }
     
-    
 
+    /**
+     *
+     * @return
+     */
     public List<Arvostelu> getArvostelut() {
         return arvostelut;
     }
     
+    /**
+     *Metodi palauttaa viinin saamat arviot (arvosanat ja niihin liittyvät kommentit).
+     * @return
+     */
     public String stringArvostelut() {
         String arviot = "";
         for (Arvostelu arvostelu : arvostelut) {
@@ -47,6 +74,10 @@ public class Viini implements Comparable<Viini> {
         } return arviot;
     }
 
+    /**
+     *Metodi palauttaa viinin saamien arvostelujen keskiarvon.
+     * @return
+     */
     public double getKeskiarvo() {
         int summa = 0;
         for (Arvostelu a : arvostelut) {
@@ -55,42 +86,59 @@ public class Viini implements Comparable<Viini> {
         return (double) summa / arvostelut.size();
     }
 
+    /**
+     *Metodi palauttaa viinin nimen.
+     * @return
+     */
     public String getNimi() {
         return nimi;
     }
 
+    /**
+     *Metodi palauttaa viinin rypälelajikkeen.
+     * @return
+     */
     public String getLajike() {
         return lajike;
     }
 
+    /**
+     *Metodi palauttaa viinin valmistusmaan.
+     * @return
+     */
     public String getMaa() {
         return maa;
     }
 
+    /**
+     *Metodi palauttaa viinin valmistusvuoden.
+     * @return
+     */
     public String getVuosi() {
         return vuosi;
     }
 
+    /**
+     *Metodi palauttaa viinin tyypin (puna- tai valkoviini).
+     * @return
+     */
     public String getTyyppi() {
         return tyyppi;
     }
+   
 
-    public void setLajike(String lajike) {
-        this.lajike = lajike;
-    }
-
-    public void setMaa(String maa) {
-        this.maa = maa;
-    }
-
-    public void setVuosi(String vuosi) {
-        this.vuosi = vuosi;
-    }
-
+    /**
+     *Metodi palauttaa viinin tiedot sellaisessa muodossa, että viini voidaan tallentaa tiedostoon.
+     * @return
+     */
     public String getTiedostomuoto() {
         return this.tyyppi + ":" + this.nimi + ":" + this.lajike + ":" + this.maa + ":" + this.vuosi;
     }
 
+    /**
+     *Metodi palauttaa viinin nimen ja arvostelut sellaisessa muodossa, että ne voidaan tallentaa tiedostoon.
+     * @return
+     */
     public String getNimiJaArvosteluTiedostomuoto() {
         String arviot = "";
         for (Arvostelu a : arvostelut) {
