@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.SwingUtilities;
+import kayttoliittyma.Kayttoliittyma;
 import muistio.viinimuistio.Arvostelu;
 import muistio.viinimuistio.Viini;
 import muistio.viinimuistio.ViiniKellari;
@@ -27,12 +29,9 @@ public class TiedostoWelho {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        ViiniKellari vk = new ViiniKellari();
-        TiedostoWelho tw = new TiedostoWelho();
-        vk = tw.lueViinit();
-        Viini vino = vk.haeNimenMukaan("Blue nun").get(0);
-        tw.lueArvostelut();
-        System.out.println(vino.stringArvostelut());
+        TiedostoWelho tw = new TiedostoWelho();       
+        Kayttoliittyma kayttoliittyma = new Kayttoliittyma(tw);
+        SwingUtilities.invokeLater(kayttoliittyma);
     }
     private ViiniKellari viinikellari;
     private File viinitiedosto;
