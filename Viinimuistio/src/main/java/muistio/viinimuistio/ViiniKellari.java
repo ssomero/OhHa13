@@ -96,6 +96,8 @@ public class ViiniKellari {
         return viinit;
     }
     
+    
+    
     /**
      *
      * @param viini
@@ -107,4 +109,6 @@ public class ViiniKellari {
             }
         }
     }
+    
+   
 }
