@@ -1,2 +1,11 @@
 tyyppi:nimi:lajike:maa:vuosi
-puna:blue nun:rypäle:suomi:2001
+punaviini:punkku:shiraz:ranska:2012
+valkoviini:yali:sauvingnon blans:chile:2011
+valkoviini:j.p. chenet:chardonnay:ranska:2011
+valkoviini:black tower:riesling:saksa:2010
+valkoviini:black tower:pinot grigio:italia:2012
+valkoviini:chill:riesling:saksa:2009
+punaviini:kumala:pinot noir:chile:2013
+valkoviini:topin viini:olut:suomi:2014
+punaviini:sonjan viini:rypäle:ruotsi:2008
+punaviini:sonjan vissy:vesi:suomi:2012

@@ -17,24 +17,28 @@ public class ViiniKellari {
     private List<Viini> viinit;
 
     /**
-     *Konstruktorissa luodaan tyhjäviinilista, joka toimii viinikellarin pohjana ja jonne viinit lisätään.
+     * Konstruktorissa luodaan tyhjäviinilista, joka toimii viinikellarin
+     * pohjana ja jonne viinit lisätään.
      */
     public ViiniKellari() {
         this.viinit = new ArrayList<>();
     }
 
     /**
-     *Metodi lisää parametrinna annetun viinin viinikellarin viineihin.
+     * Metodi lisää parametrinna annetun viinin viinikellarin viineihin.
+     *
      * @param v
      */
     public void lisaaViini(Viini v) {
-        if(!viinit.contains(v)) {
+        if (!viinit.contains(v)) {
             this.viinit.add(v);
-        }         
-    }       
+        }
+    }
 
     /**
-     *Metodi antaa listan viineistä, joiden nimi vastaa parametrina annettua viintä.
+     * Metodi antaa listan viineistä, joiden nimi vastaa parametrina annettua
+     * viintä.
+     *
      * @param nimi
      * @return
      */
@@ -59,9 +63,9 @@ public class ViiniKellari {
             if (v.getMaa().trim().equalsIgnoreCase(maa.trim())) {
                 lista.add(v);
             }
-        } 
+        }
         return lista;
-        
+
     }
 
     /**
@@ -95,20 +99,26 @@ public class ViiniKellari {
     public List<Viini> listaaViinit() {
         return viinit;
     }
-    
-    
-    
+
     /**
      *
      * @param viini
      */
     public void poistaViini(Viini viini) {
         for (Viini v : viinit) {
-            if(v.equals(viini)) {
+            if (v.equals(viini)) {
                 viinit.remove(v);
             }
         }
     }
-    
-   
+
+    public Viini getViini(Viini viini) {
+        for (Viini viini1 : viinit) {
+            if (viini1.equals(viini)) {
+                return viini1;
+            }
+        }
+        return null;
+
+    }
 }

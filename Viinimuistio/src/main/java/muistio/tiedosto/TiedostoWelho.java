@@ -29,7 +29,7 @@ public class TiedostoWelho {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        TiedostoWelho tw = new TiedostoWelho();       
+        TiedostoWelho tw = new TiedostoWelho();
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma(tw);
         SwingUtilities.invokeLater(kayttoliittyma);
     }
@@ -38,7 +38,8 @@ public class TiedostoWelho {
     private File arviotiedosto;
 
     /**
-     *
+     * Konstruktorissa luodaan viinikellari sekä otetaan mukaan viini- ja
+     * arviotiedostot.
      */
     public TiedostoWelho() {
         this.viinikellari = new ViiniKellari();
@@ -48,8 +49,7 @@ public class TiedostoWelho {
 
     /**
      *
-     * @return
-     * @throws Exception
+     * @return @throws Exception
      */
     public ViiniKellari lueViinit() throws Exception {
         Scanner lukija = new Scanner(viinitiedosto);
@@ -71,8 +71,7 @@ public class TiedostoWelho {
     //liian pitkä metodi, yritetään pilkkoa! jos esim pelkkä lue()? foresta oma metodi?
     /**
      *
-     * @return
-     * @throws FileNotFoundException
+     * @return @throws FileNotFoundException
      */
     public ViiniKellari lueArvostelut() throws FileNotFoundException {
         Scanner lukija = new Scanner(arviotiedosto);
@@ -130,10 +129,10 @@ public class TiedostoWelho {
      * @throws IOException
      */
     public void kirjoitaArvostelu() throws IOException {
-        FileWriter kirjoittaja = new FileWriter("arvostelut.txt");
+        FileWriter kirjoittaja = new FileWriter("arvostelut.txt");        
         for (Viini viinit : viinikellari.listaaViinit()) {
             kirjoittaja.write(viinit.getNimiJaArvosteluTiedostomuoto());
-        }
+        }        
         kirjoittaja.close();
     }
 }

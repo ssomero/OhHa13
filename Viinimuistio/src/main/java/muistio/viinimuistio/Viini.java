@@ -132,7 +132,7 @@ public class Viini implements Comparable<Viini> {
      * @return
      */
     public String getTiedostomuoto() {
-        return this.tyyppi + ":" + this.nimi + ":" + this.lajike + ":" + this.maa + ":" + this.vuosi;
+        return this.tyyppi + ":" + this.nimi + ":" + this.lajike + ":" + this.maa + ":" + this.vuosi+"\n";
     }
 
     /**
@@ -145,7 +145,7 @@ public class Viini implements Comparable<Viini> {
             if(arvostelut.size()>1) {
             arviot += this.nimi + ":" + a.getTiedostomuoto() + "\n";
             } else if(arvostelut.size()==1) {
-                arviot = this.nimi + ":" + a.getTiedostomuoto();
+                arviot = this.nimi + ":" + a.getTiedostomuoto()+"\n";
             } 
             }
         return arviot;

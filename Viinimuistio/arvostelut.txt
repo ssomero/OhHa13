@@ -1,4 +1,2 @@
-nimi:69:kommentti
-blue nun:70:ihan ookoo
-blue nun:100:täydellinen
-blue nun:44:
+topin viini:99:
+sonjan vissy:77:
