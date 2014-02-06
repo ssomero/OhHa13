@@ -8,3 +8,6 @@
 28.1.2013 koodien ja j-unitin tekoa 3h
 29.1.2013 koodia ja testejä 2h
 30.1.2013 koodia ja testejä 6h
+4.2.2013  Käyttöliittymä 1h
+5.2.2013  Käyttöliittymä 2h
+6.2.2013  Käyttöliittymä, vanhojen luokkien fiksailu, muutama testi, sekvenssikaaviot 10h
