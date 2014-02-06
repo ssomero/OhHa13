@@ -56,14 +56,14 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        GridLayout layout = new GridLayout(8, 1);
+        GridLayout layout = new GridLayout(10, 1);
         container.setLayout(layout);
         JLabel tervetuloa = new JLabel("<html>Tervetuloa viinimuistioon!<br>"
                 + "Täällä voit selata talletettuja viinejä, sekä lisätä uusia viinejä<br><br>"
                 + "Muistioon talletetut viinit:</html>");
         JLabel mitatehdaan = new JLabel("<html><br>Mitä haluat tehdä?</html>");
         
-        container.add(new ValikkoPanel(), BorderLayout.SOUTH);
+ 
 
 //        String viinit = "";
 //        for (Viini vk : kellari.listaaViinit()) {
@@ -78,51 +78,11 @@ public class Kayttoliittyma implements Runnable {
         container.add(mitatehdaan);
 
         
-        container.add(new ValikkoPanel(), BorderLayout.SOUTH);
-        luoViininLisays(container);
+        container.add(new ValikkoPanel(tw), BorderLayout.SOUTH);
+        
     }
 
-    public void luoViininLisays(Container container) {
-        GridLayout layout = new GridLayout(5, 2);
-        container.setLayout(layout);
-
-        JLabel tyyppiTeksti = new JLabel("Tyyppi (valko- tai punaviini):");
-        JTextField tyyppiKentta = new JTextField();
-        JLabel nimiTeksti = new JLabel("Nimi:");
-        JTextField nimiKentta = new JTextField();
-        JLabel lajikeTeksti = new JLabel("Lajike:");
-        JTextField lajikeKentta = new JTextField();
-        JLabel maaTeksti = new JLabel("Maa:");
-        JTextField maaKentta = new JTextField();
-        JLabel vuosiTeksti = new JLabel("Vuosi:");
-        JTextField vuosiKentta = new JTextField();
-        JLabel arvosanaTeksti = new JLabel("Arvosana (40-100):");
-        JTextField arvosanaKentta = new JTextField();
-        JLabel arvioTeksti = new JLabel("Kommentti:");
-        JTextField arvioKentta = new JTextField();
-
-
-        JButton lisaaNappi = new JButton("Lisää viini!");
-        TiedostoWelhonKuuntelija kuuntelija = new TiedostoWelhonKuuntelija(tw, tyyppiKentta, nimiKentta, lajikeKentta, maaKentta, vuosiKentta, arvosanaKentta, arvioKentta);
-        lisaaNappi.addActionListener(kuuntelija);
-
-        container.add(tyyppiTeksti);
-        container.add(tyyppiKentta);
-        container.add(nimiTeksti);
-        container.add(nimiKentta);
-        container.add(lajikeTeksti);
-        container.add(lajikeKentta);
-        container.add(maaTeksti);
-        container.add(maaKentta);
-        container.add(vuosiTeksti);
-        container.add(vuosiKentta);
-        container.add(arvosanaTeksti);
-        container.add(arvosanaKentta);
-        container.add(arvioTeksti);
-        container.add(arvioKentta);
-        container.add(new JLabel(""));
-        container.add(lisaaNappi);
-    }
+   
 
     public JFrame getFrame() {
         return frame;

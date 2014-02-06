@@ -8,6 +8,7 @@ import java.awt.Container;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import muistio.tiedosto.TiedostoWelho;
 
 /**
  *
@@ -15,9 +16,11 @@ import javax.swing.JPanel;
  */
 public class ValikkoPanel extends JPanel {
     private JButton haku;
+    private TiedostoWelho tw;
 
-    public ValikkoPanel() {
+    public ValikkoPanel(TiedostoWelho tw) {
         super(new GridLayout(1, 3));
+        this.tw = tw;
         luoKomponentit();
     }
 
@@ -29,7 +32,7 @@ public class ValikkoPanel extends JPanel {
         add(lisaa);
         HakemisenKuuntelija hkuuntelija = new HakemisenKuuntelija(hae);
         hae.addActionListener(hkuuntelija);
-        LisaamisenKuuntelija lkuuntelija = new LisaamisenKuuntelija(lisaa);
+        LisaamisenKuuntelija lkuuntelija = new LisaamisenKuuntelija(tw, lisaa);
         lisaa.addActionListener(lkuuntelija);
         
     }

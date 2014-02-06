@@ -58,12 +58,10 @@ public class TiedostoWelhonKuuntelija implements ActionListener {
             tw.kirjoitaViini();
             tw.lueArvostelut().getViini(viini).lisaaArvostelu(arvio);
             tw.kirjoitaArvostelu();
-            JFrame newFrame = new JFrame("Viinin lisääminen");
-            newFrame.pack();
-            newFrame.setVisible(true);
+            
 
         } catch (Exception ex) {
-            Logger.getLogger(TiedostoWelhonKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
     }
 }
