@@ -10,14 +10,8 @@ import javax.swing.JPanel;
  *
  * @author Sonja
  */
-public class ViiniPanel extends JPanel{
+public class HakuPanel extends JPanel{
     
-    public ViiniPanel() {
-        
-    }
     
-    public void luoKomponentit() {
-        
-    }
     
 }

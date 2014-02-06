@@ -9,3 +9,4 @@ punaviini:kumala:pinot noir:chile:2013
 valkoviini:topin viini:olut:suomi:2014
 punaviini:sonjan viini:rypäle:ruotsi:2008
 punaviini:sonjan vissy:vesi:suomi:2012
+valkoviini:Huksu:pinot mau:catland:2013

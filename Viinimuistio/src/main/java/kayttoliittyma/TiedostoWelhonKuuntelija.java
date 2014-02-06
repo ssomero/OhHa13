@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 import muistio.tiedosto.TiedostoWelho;
 import muistio.viinimuistio.Arvostelu;
@@ -18,7 +19,7 @@ import muistio.viinimuistio.Viini;
  * @author Sonja
  */
 public class TiedostoWelhonKuuntelija implements ActionListener {
-    
+
     private TiedostoWelho tw;
     private JTextField tyyppiKentta;
     private JTextField nimiKentta;
@@ -27,7 +28,7 @@ public class TiedostoWelhonKuuntelija implements ActionListener {
     private JTextField vuosiKentta;
     private JTextField arvosanaKentta;
     private JTextField arvioKentta;
-    
+
     TiedostoWelhonKuuntelija(TiedostoWelho tw, JTextField tyyppiKentta, JTextField nimiKentta, JTextField lajikeKentta, JTextField maaKentta, JTextField vuosiKentta, JTextField arvosanaKentta, JTextField arvioKentta) {
         this.tw = tw;
         this.tyyppiKentta = tyyppiKentta;
@@ -37,14 +38,14 @@ public class TiedostoWelhonKuuntelija implements ActionListener {
         this.vuosiKentta = vuosiKentta;
         this.arvosanaKentta = arvosanaKentta;
         this.arvioKentta = arvioKentta;
+
+
     }
-    
+
     public void viininLisays(TiedostoWelho tw) {
-        
-        
     }
-        {
-        
+
+    {
     }
 
     @Override
@@ -55,11 +56,14 @@ public class TiedostoWelhonKuuntelija implements ActionListener {
         try {
             tw.lueViinit().lisaaViini(viini);
             tw.kirjoitaViini();
-            tw.lueArvostelut().getViini(viini).lisaaArvostelu(arvio);            
+            tw.lueArvostelut().getViini(viini).lisaaArvostelu(arvio);
             tw.kirjoitaArvostelu();
+            JFrame newFrame = new JFrame("Viinin lisääminen");
+            newFrame.pack();
+            newFrame.setVisible(true);
+
         } catch (Exception ex) {
             Logger.getLogger(TiedostoWelhonKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 }

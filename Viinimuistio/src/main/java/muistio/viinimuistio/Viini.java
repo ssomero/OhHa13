@@ -22,6 +22,8 @@ public class Viini implements Comparable<Viini> {
     private List<Arvostelu> arvostelut;
 
     /**
+     * Kosntruktorissa luodaan viini-olio, ja tarkastetaan, että kaikki parametrit on syötetty.
+     * 
      *Viinin tyyppi, puna- tai valkoviini 
      * @param tyyppi
      * 
@@ -38,6 +40,9 @@ public class Viini implements Comparable<Viini> {
      * @param vuosi
      */
     public Viini(String tyyppi, String nimi, String lajike, String maa, String vuosi) {
+        if (tyyppi==null || nimi==null || lajike==null || maa==null || vuosi==null) {
+            throw new IllegalArgumentException("Viinille tulee syöttää kaikki tiedot!");
+        }
         this.tyyppi = tyyppi;
         this.nimi = nimi;
         this.lajike = lajike;
