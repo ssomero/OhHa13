@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 import muistio.tiedosto.TiedostoWelho;
 
 /**
@@ -34,13 +35,14 @@ public class LisaamisenKuuntelija implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JFrame newFrame = new JFrame("Viinin lisääminen");
         newFrame.setPreferredSize(new Dimension(700, 500));
+        
         newFrame.pack();
         newFrame.setVisible(true);
         luoViininLisays(newFrame.getContentPane());
     }
     
     public void luoViininLisays(Container container) {
-        GridLayout layout = new GridLayout(10, 2);
+        GridLayout layout = new GridLayout(15, 1);
         container.setLayout(layout);
 
         JLabel tyyppiTeksti = new JLabel("Tyyppi (valko- tai punaviini):");
