@@ -18,7 +18,7 @@ import muistio.viinimuistio.Viini;
 import muistio.viinimuistio.ViiniKellari;
 
 /**
- *
+ *TiedostoWelho lukee ViiniKellaria ja kirjoittaa sinne.
  * @author Sonja
  */
 public class TiedostoWelho {

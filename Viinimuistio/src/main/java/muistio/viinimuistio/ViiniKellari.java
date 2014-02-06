@@ -9,7 +9,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- *
+ *ViiniKellariin talletetaan kaikki viinit listana. Viinien arvosteluihin pääsee 
+ * myös käsiksi viinien kautta. Samaa viini-oliota ei voi lisätä kahta kertaa kellariin.
  * @author Sonja
  */
 public class ViiniKellari {

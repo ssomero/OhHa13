@@ -5,7 +5,9 @@
 package muistio.viinimuistio;
 
 /**
- *
+ *Tämän luokan ilmentymät ovat yksittäisiä arvosteluja liittyen johonkin viiniin.
+ * Jokaisessa arvostelussa on vähintään arvosana väliltä 40-100.
+ * Lisäksi on mahdollista antaa viinille myös kommentti.
  * @author Sonja
  */
 public class Arvostelu {

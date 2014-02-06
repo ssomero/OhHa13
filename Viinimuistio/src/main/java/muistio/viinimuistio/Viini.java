@@ -9,7 +9,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *
+ *Tämä on viinin luokka. Jokaiselle viinin ilmentymälle luodaan oma arvostelulista,
+ * johon voidaan lisätä kyseisen viinin arvosteluja. Lisäksi viinejä voi verrata
+ * compareTo-metodilla siten, että verrattavat ovat samoja ainoastaan, 
+ * jos viineille annetuista parametreista kaikki ovat samat.
  * @author Sonja
  */
 public class Viini implements Comparable<Viini> {
