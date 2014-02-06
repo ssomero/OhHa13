@@ -159,9 +159,9 @@ public class Viini implements Comparable<Viini> {
     @Override
     public int compareTo(Viini verrattava) {
         if (verrattava.getKeskiarvo() > this.getKeskiarvo()) {
-            return -1;
-        } else if (verrattava.getKeskiarvo() < this.getKeskiarvo()) {
             return 1;
+        } else if (verrattava.getKeskiarvo() < this.getKeskiarvo()) {
+            return -1;
         } else {
             return 0;
         }

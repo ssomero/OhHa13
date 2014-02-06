@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import muistio.tiedosto.TiedostoWelho;
 import muistio.viinimuistio.Viini;
@@ -21,6 +22,8 @@ import muistio.viinimuistio.ViiniKellari;
  * @author Sonja
  */
 public class Kayttoliittyma implements Runnable {
+    
+    
     
     private JFrame frame;
     private TiedostoWelho tw;
@@ -78,7 +81,7 @@ public class Kayttoliittyma implements Runnable {
     
     public void muistionViinit() {
         String lista [] = null;
-        for (Viini viini : kellari.haeParhausjärjestyksessa()) {
+        for (Viini viini : kellari.haeParhausjarjestyksessa()) {
             
         }
     }

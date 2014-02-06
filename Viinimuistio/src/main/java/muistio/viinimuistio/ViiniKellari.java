@@ -30,9 +30,18 @@ public class ViiniKellari {
      * @param v
      */
     public void lisaaViini(Viini v) {
-        if (!viinit.contains(v)) {
+        boolean loytyy = false;
+        for (Viini viini : viinit) {
+            if(viini.equals(v)) {
+                loytyy = true;
+            }            
+        } if(!loytyy) {
             this.viinit.add(v);
         }
+        
+//        if (!viinit.contains(v)) {
+//            this.viinit.add(v);
+//        }
     }
 
     /**
@@ -87,7 +96,7 @@ public class ViiniKellari {
      *
      * @return
      */
-    public List<Viini> haeParhausjärjestyksessa() {
+    public List<Viini> haeParhausjarjestyksessa() {
         Collections.sort(viinit);
         return viinit;
     }

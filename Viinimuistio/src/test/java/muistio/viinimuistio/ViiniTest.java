@@ -106,7 +106,7 @@ public class ViiniTest {
         viini2.lisaaArvostelu(new Arvostelu(70));
         viini.lisaaArvostelu(new Arvostelu(70));
         viini.lisaaArvostelu(new Arvostelu(100));
-        assertEquals(1, viini.compareTo(viini2));
+        assertEquals(-1, viini.compareTo(viini2));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -122,7 +122,7 @@ public class ViiniTest {
 
     @Test
     public void getTiedostomuotoToimii() {
-        assertEquals("valkoviini:EstEstEst:laji:suomi:2012", this.viini.getTiedostomuoto());
+        assertEquals("valkoviini:EstEstEst:laji:suomi:2012\n", this.viini.getTiedostomuoto());
     }
 
     @Test
@@ -130,7 +130,7 @@ public class ViiniTest {
         Arvostelu a = new Arvostelu(66);
         a.setKommentti("mukavan kuiva maku");
         this.viini.lisaaArvostelu(a);
-        assertEquals("EstEstEst:66:mukavan kuiva maku", this.viini.getNimiJaArvosteluTiedostomuoto());
+        assertEquals("EstEstEst:66:mukavan kuiva maku\n", this.viini.getNimiJaArvosteluTiedostomuoto());
     }
 
     @Test

@@ -28,11 +28,7 @@ public class TiedostoWelho {
      * @param args
      * @throws Exception
      */
-    public static void main(String[] args) throws Exception {
-        TiedostoWelho tw = new TiedostoWelho();
-        Kayttoliittyma kayttoliittyma = new Kayttoliittyma(tw);
-        SwingUtilities.invokeLater(kayttoliittyma);
-    }
+      
     private ViiniKellari viinikellari;
     private File viinitiedosto;
     private File arviotiedosto;
