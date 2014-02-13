@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import muistio.tiedosto.TiedostoWelho;
 import muistio.viinimuistio.Arvostelu;
@@ -27,12 +29,14 @@ public class TiedostoWelhonArvioimisenKuuntelija implements ActionListener {
     private JComboBox viinit;
     private JTextField arvosanaKentta;
     private JTextField arvioKentta;
+    private JFrame frame;
 
-    public TiedostoWelhonArvioimisenKuuntelija(TiedostoWelho tw, JComboBox viinit, JTextField arvosanaKentta, JTextField arvioKentta) {
+    public TiedostoWelhonArvioimisenKuuntelija(TiedostoWelho tw, JComboBox viinit, JTextField arvosanaKentta, JTextField arvioKentta, JFrame frame) {
         this.tw = tw;
         this.viinit = viinit;
         this.arvosanaKentta = arvosanaKentta;
         this.arvioKentta = arvioKentta;
+        this.frame = frame;
     }
 
     @Override
@@ -48,13 +52,9 @@ public class TiedostoWelhonArvioimisenKuuntelija implements ActionListener {
             tw.kirjoitaArvostelu();         
         } catch (IOException ex) {
             Logger.getLogger(TiedostoWelhonArvioimisenKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
-
-
-
-
-
-
-
         }
+        JFrame newFrame = new JFrame("Onnistui");
+        JOptionPane.showMessageDialog(newFrame, "Arvostelun lisääminen onnistui!");
+        frame.setVisible(false);
     }
 }

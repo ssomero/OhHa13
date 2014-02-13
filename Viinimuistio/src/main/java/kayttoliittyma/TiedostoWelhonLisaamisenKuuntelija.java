@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import muistio.tiedosto.TiedostoWelho;
 import muistio.viinimuistio.Arvostelu;
@@ -18,7 +19,7 @@ import muistio.viinimuistio.Viini;
  *
  * @author Sonja
  */
-public class TiedostoWelhonKuuntelija implements ActionListener {
+public class TiedostoWelhonLisaamisenKuuntelija implements ActionListener {
 
     private TiedostoWelho tw;
     private JTextField tyyppiKentta;
@@ -28,8 +29,9 @@ public class TiedostoWelhonKuuntelija implements ActionListener {
     private JTextField vuosiKentta;
     private JTextField arvosanaKentta;
     private JTextField arvioKentta;
+    private JFrame frame;
 
-    public TiedostoWelhonKuuntelija(TiedostoWelho tw, JTextField tyyppiKentta, JTextField nimiKentta, JTextField lajikeKentta, JTextField maaKentta, JTextField vuosiKentta, JTextField arvosanaKentta, JTextField arvioKentta) {
+    public TiedostoWelhonLisaamisenKuuntelija(TiedostoWelho tw, JTextField tyyppiKentta, JTextField nimiKentta, JTextField lajikeKentta, JTextField maaKentta, JTextField vuosiKentta, JTextField arvosanaKentta, JTextField arvioKentta, JFrame frame) {
         this.tw = tw;
         this.tyyppiKentta = tyyppiKentta;
         this.nimiKentta = nimiKentta;
@@ -38,6 +40,7 @@ public class TiedostoWelhonKuuntelija implements ActionListener {
         this.vuosiKentta = vuosiKentta;
         this.arvosanaKentta = arvosanaKentta;
         this.arvioKentta = arvioKentta;
+        this.frame = frame;
     }    
 
     @Override
@@ -53,8 +56,12 @@ public class TiedostoWelhonKuuntelija implements ActionListener {
                     tw.kirjoitaArvostelu();
                      } 
         } catch (Exception ex) {
-            Logger.getLogger(TiedostoWelhonKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TiedostoWelhonLisaamisenKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
         }
+        JFrame newFrame = new JFrame("Onnistui");
+        JOptionPane.showMessageDialog(newFrame, "Viinin lisääminen onnistui!");
+        frame.setVisible(false);
+        
     }
 
     public boolean onkoViiniOlemassa() throws Exception {

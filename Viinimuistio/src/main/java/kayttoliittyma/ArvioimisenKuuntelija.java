@@ -38,13 +38,13 @@ public class ArvioimisenKuuntelija implements ActionListener{
             newFrame.setPreferredSize(new Dimension(700, 500));
             newFrame.pack();
             newFrame.setVisible(true);
-            luoArvio(newFrame.getContentPane());
+            luoArvio(newFrame.getContentPane(), newFrame);
         } catch (Exception ex) {
             Logger.getLogger(ArvioimisenKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public void luoArvio(Container container) throws Exception {
+    public void luoArvio(Container container, JFrame newFrame) throws Exception {
         GridLayout layout = new GridLayout(15, 1);
         container.setLayout(layout); 
         
@@ -68,7 +68,7 @@ public class ArvioimisenKuuntelija implements ActionListener{
         JLabel tyhja = new JLabel("");
 
         JButton lisaaNappi = new JButton("Lisää arvio!");
-        TiedostoWelhonArvioimisenKuuntelija kuuntelija = new TiedostoWelhonArvioimisenKuuntelija(tw, viinit, arvosanaKentta, arvioKentta);
+        TiedostoWelhonArvioimisenKuuntelija kuuntelija = new TiedostoWelhonArvioimisenKuuntelija(tw, viinit, arvosanaKentta, arvioKentta, newFrame);
         lisaaNappi.addActionListener(kuuntelija);
         
         container.add(viinit);

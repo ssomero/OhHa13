@@ -9,3 +9,6 @@ miumiu:70:Keskinkertainen
 Yalumba:93:Maku parani kun pullo oli ollut kauemmin auki
 Yalumba:79:Hieman kitkerä aluksi
 Triade:82:Hedelmäinen
+Vino:80:vivahteikas
+Soave:70:perus ruokaviini
+Soave:62:Hyvää pizzan kanssa

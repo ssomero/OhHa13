@@ -24,7 +24,7 @@ public class LisaamisenKuuntelija implements ActionListener {
 
     private JButton lisaa;
     private TiedostoWelho tw;
-    private TiedostoWelhonKuuntelija twk;
+    private TiedostoWelhonLisaamisenKuuntelija twk;
 
     public LisaamisenKuuntelija(TiedostoWelho tw, JButton lisaa) {
         this.tw = tw;
@@ -38,10 +38,11 @@ public class LisaamisenKuuntelija implements ActionListener {
         
         newFrame.pack();
         newFrame.setVisible(true);
-        luoViininLisays(newFrame.getContentPane());
+        luoViininLisays(newFrame.getContentPane(), newFrame);
+        
     }
     
-    public void luoViininLisays(Container container) {
+    public void luoViininLisays(Container container, JFrame newFrame) {
         GridLayout layout = new GridLayout(15, 1);
         container.setLayout(layout);
 
@@ -61,7 +62,7 @@ public class LisaamisenKuuntelija implements ActionListener {
         JTextField arvioKentta = new JTextField();
 
         JButton lisaaNappi = new JButton("Lisää viini!");
-        TiedostoWelhonKuuntelija kuuntelija = new TiedostoWelhonKuuntelija(tw, tyyppiKentta, nimiKentta, lajikeKentta, maaKentta, vuosiKentta, arvosanaKentta, arvioKentta);
+        TiedostoWelhonLisaamisenKuuntelija kuuntelija = new TiedostoWelhonLisaamisenKuuntelija(tw, tyyppiKentta, nimiKentta, lajikeKentta, maaKentta, vuosiKentta, arvosanaKentta, arvioKentta, newFrame);
         lisaaNappi.addActionListener(kuuntelija);
 
         container.add(tyyppiTeksti);

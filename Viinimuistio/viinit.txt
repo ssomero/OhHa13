@@ -13,3 +13,5 @@ valkoviini:Huksu:pinot mau:catland:2013
 punaviini:miumiu:rypäle:usa:2011
 valkoviini:Yalumba:riesling:Australia:2012
 valkoviini:Triade:Fiano, Greco:Italia:2011
+valkoviini:Vino:chardonnay:ranska:2010
+valkoviini:Soave:pinot grigio:italia:2009
