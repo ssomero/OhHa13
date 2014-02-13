@@ -60,8 +60,7 @@ public class TiedostoWelhonLisaamisenKuuntelija implements ActionListener {
         }
         JFrame newFrame = new JFrame("Onnistui");
         JOptionPane.showMessageDialog(newFrame, "Viinin lisääminen onnistui!");
-        frame.setVisible(false);
-        
+        frame.setVisible(false);        
     }
 
     public boolean onkoViiniOlemassa() throws Exception {

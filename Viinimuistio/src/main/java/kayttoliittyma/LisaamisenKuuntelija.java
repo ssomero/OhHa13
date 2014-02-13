@@ -38,25 +38,27 @@ public class LisaamisenKuuntelija implements ActionListener {
         
         newFrame.pack();
         newFrame.setVisible(true);
-        luoViininLisays(newFrame.getContentPane(), newFrame);
-        
+        luoViininLisays(newFrame.getContentPane(), newFrame);        
     }
     
     public void luoViininLisays(Container container, JFrame newFrame) {
         GridLayout layout = new GridLayout(15, 1);
         container.setLayout(layout);
+        
+        JLabel alkuTeksti = new JLabel("Tähdellä (*) merkityt tiedot ovat pakollisia");
+        JLabel tyhja = new JLabel("");
 
-        JLabel tyyppiTeksti = new JLabel("Tyyppi (valko- tai punaviini):");
+        JLabel tyyppiTeksti = new JLabel("* Tyyppi (valko- tai punaviini):");
         JTextField tyyppiKentta = new JTextField();
-        JLabel nimiTeksti = new JLabel("Nimi:");
+        JLabel nimiTeksti = new JLabel("* Nimi:");
         JTextField nimiKentta = new JTextField();
-        JLabel lajikeTeksti = new JLabel("Lajike:");
+        JLabel lajikeTeksti = new JLabel("* Lajike:");
         JTextField lajikeKentta = new JTextField();
-        JLabel maaTeksti = new JLabel("Maa:");
+        JLabel maaTeksti = new JLabel("* Maa:");
         JTextField maaKentta = new JTextField();
-        JLabel vuosiTeksti = new JLabel("Vuosi:");
+        JLabel vuosiTeksti = new JLabel("* Vuosi:");
         JTextField vuosiKentta = new JTextField();
-        JLabel arvosanaTeksti = new JLabel("Arvosana (40-100):");
+        JLabel arvosanaTeksti = new JLabel("* Arvosana (40-100):");
         JTextField arvosanaKentta = new JTextField();
         JLabel arvioTeksti = new JLabel("Kommentti:");
         JTextField arvioKentta = new JTextField();
@@ -64,7 +66,8 @@ public class LisaamisenKuuntelija implements ActionListener {
         JButton lisaaNappi = new JButton("Lisää viini!");
         TiedostoWelhonLisaamisenKuuntelija kuuntelija = new TiedostoWelhonLisaamisenKuuntelija(tw, tyyppiKentta, nimiKentta, lajikeKentta, maaKentta, vuosiKentta, arvosanaKentta, arvioKentta, newFrame);
         lisaaNappi.addActionListener(kuuntelija);
-
+        container.add(alkuTeksti);
+        container.add(tyhja);
         container.add(tyyppiTeksti);
         container.add(tyyppiKentta);
         container.add(nimiTeksti);
@@ -81,7 +84,5 @@ public class LisaamisenKuuntelija implements ActionListener {
         container.add(arvioKentta);
         container.add(new JLabel(""));
         container.add(lisaaNappi);
-    }
-    
-    
+    }    
 }

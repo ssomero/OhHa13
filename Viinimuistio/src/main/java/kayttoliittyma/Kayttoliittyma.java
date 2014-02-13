@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 import muistio.tiedosto.TiedostoWelho;
@@ -23,18 +24,16 @@ import muistio.viinimuistio.ViiniKellari;
  * @author Sonja
  */
 public class Kayttoliittyma implements Runnable {
-    
-    
-    
+
     private JFrame frame;
     private TiedostoWelho tw;
     private ViiniKellari kellari;
-    
+
     public Kayttoliittyma(TiedostoWelho tw) throws Exception {
         this.tw = tw;
         this.kellari = tw.lueViinit();
     }
-    
+
     @Override
     public void run() {
         frame = new JFrame("Viinimuistio");
@@ -46,9 +45,9 @@ public class Kayttoliittyma implements Runnable {
             Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
         }
         frame.pack();
-        frame.setVisible(true);        
+        frame.setVisible(true);
     }
-    
+
     private void luoKomponentit(Container container) throws Exception {
         GridLayout layout = new GridLayout(4, 1);
         container.setLayout(layout);
@@ -56,39 +55,28 @@ public class Kayttoliittyma implements Runnable {
                 + "Täällä voit selata talletettuja viinejä, sekä lisätä uusia viinejä<br><br>"
                 + "Muistioon talletetut viinit:</html>");
         JLabel mitatehdaan = new JLabel("Mitä haluat tehdä?");
-        
-        
-//        JList viinilista = new JList(tw.lueViinit().viinienNimet());
-        
-        
-        
 
         String viinit = "";
         for (Viini vk : kellari.listaaViinit()) {
-            viinit += vk.getNimi() + " " + vk.getVuosi()+"\n";
+            viinit += vk.getNimi() + " " + vk.getVuosi() + "\n";
         }
-        JTextArea listaus = new JTextArea(viinit);        
+        JTextArea listaus = new JTextArea(viinit);
+        listaus.setEditable(false);
+        JScrollPane scroll = new JScrollPane(listaus);
 
-        
-        
         container.add(tervetuloa);
-//        container.add(viinilista);
-        container.add(listaus);
+        container.add(scroll);
         container.add(mitatehdaan);
-        
-        
         container.add(new ValikkoPanel(tw), BorderLayout.SOUTH);
-        
     }
-    
+
     public JFrame getFrame() {
         return frame;
     }
-    
+
     public void muistionViinit() {
-        String lista [] = null;
+        String lista[] = null;
         for (Viini viini : kellari.haeParhausjarjestyksessa()) {
-            
         }
     }
 }

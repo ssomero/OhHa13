@@ -48,20 +48,11 @@ public class ArvioimisenKuuntelija implements ActionListener{
         GridLayout layout = new GridLayout(15, 1);
         container.setLayout(layout); 
         
-        JComboBox viinit = new JComboBox(tw.lueViinit().viinienNimet());
+        JComboBox viinit = new JComboBox(tw.lueViinit().viinienNimet());        
         
-        
-//        JLabel tyyppiTeksti = new JLabel("Tyyppi (valko- tai punaviini):");
-//        JTextField tyyppiKentta = new JTextField();
-//        JLabel nimiTeksti = new JLabel("Nimi:");
-//        JTextField nimiKentta = new JTextField();
-//        JLabel lajikeTeksti = new JLabel("Lajike:");
-//        JTextField lajikeKentta = new JTextField();
-//        JLabel maaTeksti = new JLabel("Maa:");
-//        JTextField maaKentta = new JTextField();
-//        JLabel vuosiTeksti = new JLabel("Vuosi:");
-//        JTextField vuosiKentta = new JTextField();
-        JLabel arvosanaTeksti = new JLabel("Arvosana (40-100):");
+        JLabel alkuTeksti = new JLabel("Tähdellä (*) merkityt tiedot ovat pakollisia");
+        JLabel tyhja1 = new JLabel("");
+        JLabel arvosanaTeksti = new JLabel("* Arvosana (40-100):");
         JTextField arvosanaKentta = new JTextField();
         JLabel arvioTeksti = new JLabel("Kommentti:");
         JTextField arvioKentta = new JTextField();
@@ -71,24 +62,15 @@ public class ArvioimisenKuuntelija implements ActionListener{
         TiedostoWelhonArvioimisenKuuntelija kuuntelija = new TiedostoWelhonArvioimisenKuuntelija(tw, viinit, arvosanaKentta, arvioKentta, newFrame);
         lisaaNappi.addActionListener(kuuntelija);
         
+        container.add(alkuTeksti);
+        container.add(tyhja);
         container.add(viinit);
         container.add(tyhja);
-//        container.add(tyyppiTeksti);
-//        container.add(tyyppiKentta);
-//        container.add(nimiTeksti);
-//        container.add(nimiKentta);
-//        container.add(lajikeTeksti);
-//        container.add(lajikeKentta);
-//        container.add(maaTeksti);
-//        container.add(maaKentta);
-//        container.add(vuosiTeksti);
-//        container.add(vuosiKentta);
         container.add(arvosanaTeksti);
         container.add(arvosanaKentta);
         container.add(arvioTeksti);
         container.add(arvioKentta);
         container.add(new JLabel(""));
         container.add(lisaaNappi);
-    }
-    
+    }    
 }

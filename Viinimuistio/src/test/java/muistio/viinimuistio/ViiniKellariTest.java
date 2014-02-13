@@ -106,7 +106,28 @@ public class ViiniKellariTest {
         viini1.lisaaArvostelu(new Arvostelu(79));
         viini2.lisaaArvostelu(new Arvostelu(100));
         viini3.lisaaArvostelu(new Arvostelu(40));
-        assertEquals("nimi2", vk.haeParhausjarjestyksessa().get(0).getNimi());
-        
+        assertEquals("nimi2", vk.haeParhausjarjestyksessa().get(0).getNimi());        
+    }
+    
+    @Test
+    public void getViiniToimii() {
+        Viini viini1 = new Viini("tyyppi", "nimi", "laji", "maa", "vuosi");
+        Viini viini2 = new Viini("tyyppi2", "nimi2", "laji2", "maa2", "vuosi2");
+        Viini viini3 = new Viini("tyyppi2", "nimi6", "laji", "maa3", "vuosi3");
+        vk.lisaaViini(viini1);
+        vk.lisaaViini(viini2);
+        vk.lisaaViini(viini3);
+        assertEquals("\nTyyppi: tyyppi\nNimi: nimi\nLajike: laji\nMaa: maa\nVuosi: vuosi\n", vk.getViini(viini1).toString());
+    }
+    
+    @Test
+    public void metodiviinienNimetToimii() {
+        Viini viini1 = new Viini("tyyppi", "nimi", "laji", "maa", "vuosi");
+        Viini viini2 = new Viini("tyyppi2", "nimi2", "laji2", "maa2", "vuosi2");
+        Viini viini3 = new Viini("tyyppi2", "nimi6", "laji", "maa3", "vuosi3");
+        vk.lisaaViini(viini1);
+        vk.lisaaViini(viini2);
+        vk.lisaaViini(viini3);
+        assertEquals(3, vk.viinienNimet().length);
     }
 }

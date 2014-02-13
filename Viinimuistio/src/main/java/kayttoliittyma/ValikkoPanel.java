@@ -4,10 +4,8 @@
  */
 package kayttoliittyma;
 
-import java.awt.Container;
 import java.awt.GridLayout;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import muistio.tiedosto.TiedostoWelho;
 

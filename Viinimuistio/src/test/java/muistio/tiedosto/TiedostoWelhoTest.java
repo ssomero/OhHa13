@@ -4,18 +4,20 @@
  */
 package muistio.tiedosto;
 
+import muistio.viinimuistio.Viini;
+import muistio.viinimuistio.ViiniKellari;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author Sonja
  */
 public class TiedostoWelhoTest {
+    TiedostoWelho tw;
     
     public TiedostoWelhoTest() {
     }
@@ -30,14 +32,21 @@ public class TiedostoWelhoTest {
     
     @Before
     public void setUp() {
+        tw = new TiedostoWelho();
     }
     
     @After
     public void tearDown() {
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
+//    @Test
+//    public void tiedostoonKirjoittaminenOnnistuu() throws Exception {
+//        Viini viini = new Viini("tyyppi", "nimi", "lajike6", "maa", "vuosi");
+//        ViiniKellari kellari = tw.lueViinit();
+//        kellari.lisaaViini(viini);
+//        tw.kirjoitaViini();
+//        assertEquals();
+//        
+//        
+//    }
 }

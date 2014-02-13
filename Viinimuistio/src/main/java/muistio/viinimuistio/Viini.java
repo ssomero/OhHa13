@@ -152,7 +152,7 @@ public class Viini implements Comparable<Viini> {
         for (Arvostelu a : arvostelut) {
             if(arvostelut.size()>1) {
             arviot += this.nimi + ":" + a.getTiedostomuoto() + "\n";
-            } else if(arvostelut.size()==1) {
+            } else  {
                 arviot = this.nimi + ":" + a.getTiedostomuoto()+"\n";
             } 
             }

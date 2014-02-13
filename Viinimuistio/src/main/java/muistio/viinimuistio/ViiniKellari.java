@@ -39,10 +39,6 @@ public class ViiniKellari {
         } if(!loytyy) {
             this.viinit.add(v);
         }
-        
-//        if (!viinit.contains(v)) {
-//            this.viinit.add(v);
-//        }
     }
 
     /**
@@ -75,7 +71,6 @@ public class ViiniKellari {
             }
         }
         return lista;
-
     }
 
     /**
@@ -137,6 +132,5 @@ public class ViiniKellari {
             nimet[i] = viinit.get(i).getNimi();
         }
          return nimet;
-    }
-    
+    }    
 }

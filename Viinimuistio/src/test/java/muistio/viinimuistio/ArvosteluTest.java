@@ -46,6 +46,11 @@ public class ArvosteluTest {
         arvio = new Arvostelu(-40);        
     }
     
+    @Test(expected=IllegalArgumentException.class) 
+    public void konstruktoriEiAsetaLaitontaArvosanaa2() {
+        arvio = new Arvostelu(101);        
+    }
+    
     @Test
     public void konstruktoriAsettaaParametrinOikein() {
         arvio = new Arvostelu(100);
