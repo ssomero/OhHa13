@@ -96,10 +96,8 @@ public class TiedostoWelho {
         }
         return viinikellari;
     }
-
-    //mitä jos kommenttikenttä on tyhjä? kirjottaessa/lukiessa tutkitaan jos on tyhjä ja esim. laitetaan tyhjä merkkijono
-    //luetaanko arvosanat tiedostossa int vai String muuttujina? voi muuttaa splitissä tms int:ksi.(integer.parseInt)
-//    
+    
+    
     /**
      *
      * @throws IOException

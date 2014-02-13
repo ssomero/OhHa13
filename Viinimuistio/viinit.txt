@@ -1,17 +1,7 @@
-tyyppi:nimi:lajike:maa:vuosi
-punaviini:punkku:shiraz:ranska:2012
-valkoviini:yali:sauvingnon blans:chile:2011
-valkoviini:j.p. chenet:chardonnay:ranska:2011
-valkoviini:black tower:riesling:saksa:2010
-valkoviini:black tower:pinot grigio:italia:2012
-valkoviini:chill:riesling:saksa:2009
-punaviini:kumala:pinot noir:chile:2013
-valkoviini:topin viini:olut:suomi:2014
-punaviini:sonjan viini:rypäle:ruotsi:2008
-punaviini:sonjan vissy:vesi:suomi:2012
-valkoviini:Huksu:pinot mau:catland:2013
-punaviini:miumiu:rypäle:usa:2011
+punaviini:kumala:pinot noir:Chile:2011
 valkoviini:Yalumba:riesling:Australia:2012
-valkoviini:Triade:Fiano, Greco:Italia:2011
-valkoviini:Vino:chardonnay:ranska:2010
-valkoviini:Soave:pinot grigio:italia:2009
+valkoviini:Triade:frigo:italia:2009
+valkoviini:tuplaviini:tupla:tuplamaa:2020
+puna:triplaviini:rtutu:fdmfs:432
+quatroviini:auto:vituiksmeni:turku:2010
+PUNAVIINI:Huksun vesi:kraana:suoni:2014

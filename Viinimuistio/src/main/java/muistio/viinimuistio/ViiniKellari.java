@@ -6,6 +6,7 @@ package muistio.viinimuistio;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -110,11 +111,18 @@ public class ViiniKellari {
      * @param viini
      */
     public void poistaViini(Viini viini) {
-        for (Viini v : viinit) {
-            if (v.equals(viini)) {
-                viinit.remove(v);
-            }
-        }
+       Iterator<Viini> iteraattori = viinit.iterator();
+       while(iteraattori.hasNext()) {
+           if(iteraattori.next().equals(viini)) {
+               iteraattori.remove();
+           }
+       }
+//        for (Iterator<Viini> v = viinit.iterator(); v.hasNext();) {
+//            Viini vino = v.next();
+//            if (vino.equals(viini)) {
+//                v.remove();
+//            }
+//        }
     }
 
     public Viini getViini(Viini viini) {

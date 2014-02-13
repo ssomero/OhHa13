@@ -4,6 +4,7 @@
  */
 package muistio.tiedosto;
 
+import junit.framework.Assert;
 import muistio.viinimuistio.Viini;
 import muistio.viinimuistio.ViiniKellari;
 import org.junit.After;
@@ -11,42 +12,46 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
  * @author Sonja
  */
 public class TiedostoWelhoTest {
+
     TiedostoWelho tw;
-    
+
     public TiedostoWelhoTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
         tw = new TiedostoWelho();
     }
-    
+
     @After
     public void tearDown() {
     }
-    
-//    @Test
-//    public void tiedostoonKirjoittaminenOnnistuu() throws Exception {
-//        Viini viini = new Viini("tyyppi", "nimi", "lajike6", "maa", "vuosi");
-//        ViiniKellari kellari = tw.lueViinit();
-//        kellari.lisaaViini(viini);
-//        tw.kirjoitaViini();
-//        assertEquals();
-//        
-//        
-//    }
+
+    @Test
+    public void tiedostoonKirjoittaminenOnnistuu() throws Exception {
+        Viini viini = new Viini("tyyppi", "nimi", "lajike6", "maa", "vuosi");
+       
+        int alkukoko = tw.lueViinit().listaaViinit().size();
+        tw.lueViinit().lisaaViini(viini);
+        tw.kirjoitaViini();      
+        int uusikoko = tw.lueViinit().listaaViinit().size();
+        assertEquals(alkukoko + 1, uusikoko);
+      tw.lueViinit().poistaViini(viini);
+        tw.kirjoitaViini();
+    }
 }

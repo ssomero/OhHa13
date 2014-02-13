@@ -45,9 +45,11 @@
                 <configuration>
                     <targetClasses>
                         <param>muistio.viinimuistio.*</param>
+                        <param>muistio.tiedosto.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>muistio.viinimuistio.*</param>
+                        <param>muistio.tiedosto.*</param>
                     </targetTests>
                 </configuration>
             </plugin>

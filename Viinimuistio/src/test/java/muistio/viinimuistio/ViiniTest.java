@@ -112,7 +112,6 @@ public class ViiniTest {
         viini.lisaaArvostelu(new Arvostelu(70));
         viini.lisaaArvostelu(new Arvostelu(40));
         viini.lisaaArvostelu(new Arvostelu(100));
-
         assertEquals(3, viini.getArvostelut().size());
     }
 

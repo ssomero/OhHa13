@@ -1,14 +1,3 @@
-punkku:54:punaista
-black tower:86:mustaa
-topin viini:99:
-sonjan vissy:77:
-sonjan vissy:55:melko kuplivaa ja mauton
-Huksu:100:
-Huksu:87:karvaista
-miumiu:70:Keskinkertainen
-Yalumba:93:Maku parani kun pullo oli ollut kauemmin auki
-Yalumba:79:Hieman kitkerä aluksi
-Triade:82:Hedelmäinen
-Vino:80:vivahteikas
-Soave:70:perus ruokaviini
-Soave:62:Hyvää pizzan kanssa
+auto:66:hyvA
+Huksun vesi:40:
+Huksun vesi:98:raikasta

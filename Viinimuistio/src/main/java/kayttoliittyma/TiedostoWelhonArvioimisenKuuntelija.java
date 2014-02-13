@@ -42,19 +42,16 @@ public class TiedostoWelhonArvioimisenKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            ViiniKellari kellari = tw.lueArvostelut();
             Arvostelu arvio = new Arvostelu(Integer.parseInt(arvosanaKentta.getText()));
             arvio.setKommentti(arvioKentta.getText());
-
-            Viini viini = kellari.haeNimenMukaan((String) viinit.getSelectedItem()).get(0);
-
-            kellari.getViini(viini).lisaaArvostelu(arvio);
-            tw.kirjoitaArvostelu();         
-        } catch (IOException ex) {
+            Viini viini = tw.lueViinit().haeNimenMukaan((String) viinit.getSelectedItem()).get(0);
+            tw.lueViinit().getViini(viini).lisaaArvostelu(arvio);
+            tw.kirjoitaArvostelu();
+            JFrame newFrame = new JFrame("Onnistui");
+            JOptionPane.showMessageDialog(newFrame, "Arvostelun lisääminen onnistui!");
+            frame.setVisible(false);
+        } catch (Exception ex) {
             Logger.getLogger(TiedostoWelhonArvioimisenKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JFrame newFrame = new JFrame("Onnistui");
-        JOptionPane.showMessageDialog(newFrame, "Arvostelun lisääminen onnistui!");
-        frame.setVisible(false);
     }
 }
