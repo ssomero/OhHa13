@@ -8,10 +8,11 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.SwingUtilities;
+import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 import muistio.tiedosto.TiedostoWelho;
 import muistio.viinimuistio.Viini;
@@ -39,12 +40,16 @@ public class Kayttoliittyma implements Runnable {
         frame = new JFrame("Viinimuistio");
         frame.setPreferredSize(new Dimension(900, 700));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        luoKomponentit(frame.getContentPane());
+        try {
+            luoKomponentit(frame.getContentPane());
+        } catch (Exception ex) {
+            Logger.getLogger(Kayttoliittyma.class.getName()).log(Level.SEVERE, null, ex);
+        }
         frame.pack();
         frame.setVisible(true);        
     }
     
-    private void luoKomponentit(Container container) {
+    private void luoKomponentit(Container container) throws Exception {
         GridLayout layout = new GridLayout(4, 1);
         container.setLayout(layout);
         JLabel tervetuloa = new JLabel("<html>Tervetuloa viinimuistioon!<br>"
@@ -53,21 +58,22 @@ public class Kayttoliittyma implements Runnable {
         JLabel mitatehdaan = new JLabel("Mitä haluat tehdä?");
         
         
-        JList viinilista = new JList();
+//        JList viinilista = new JList(tw.lueViinit().viinienNimet());
+        
         
         
 
-//        String viinit = "";
-//        for (Viini vk : kellari.listaaViinit()) {
-//            viinit += vk.getNimi() + " " + vk.getVuosi();
-//        }
-//        JTextField listaus = new JTextField(viinit);        
+        String viinit = "";
+        for (Viini vk : kellari.listaaViinit()) {
+            viinit += vk.getNimi() + " " + vk.getVuosi()+"\n";
+        }
+        JTextArea listaus = new JTextArea(viinit);        
 
         
         
         container.add(tervetuloa);
-        container.add(viinilista);
-//        container.add(listaus);
+//        container.add(viinilista);
+        container.add(listaus);
         container.add(mitatehdaan);
         
         

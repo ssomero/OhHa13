@@ -29,7 +29,7 @@ public class TiedostoWelhonKuuntelija implements ActionListener {
     private JTextField arvosanaKentta;
     private JTextField arvioKentta;
 
-    TiedostoWelhonKuuntelija(TiedostoWelho tw, JTextField tyyppiKentta, JTextField nimiKentta, JTextField lajikeKentta, JTextField maaKentta, JTextField vuosiKentta, JTextField arvosanaKentta, JTextField arvioKentta) {
+    public TiedostoWelhonKuuntelija(TiedostoWelho tw, JTextField tyyppiKentta, JTextField nimiKentta, JTextField lajikeKentta, JTextField maaKentta, JTextField vuosiKentta, JTextField arvosanaKentta, JTextField arvioKentta) {
         this.tw = tw;
         this.tyyppiKentta = tyyppiKentta;
         this.nimiKentta = nimiKentta;
@@ -38,30 +38,32 @@ public class TiedostoWelhonKuuntelija implements ActionListener {
         this.vuosiKentta = vuosiKentta;
         this.arvosanaKentta = arvosanaKentta;
         this.arvioKentta = arvioKentta;
-
-
-    }
-
-    public void viininLisays(TiedostoWelho tw) {
-    }
-
-    {
-    }
+    }    
 
     @Override
     public void actionPerformed(ActionEvent e) {
         Viini viini = new Viini(tyyppiKentta.getText(), nimiKentta.getText(), lajikeKentta.getText(), maaKentta.getText(), vuosiKentta.getText());
         Arvostelu arvio = new Arvostelu(Integer.parseInt(arvosanaKentta.getText()));
         arvio.setKommentti(arvioKentta.getText());
-        try {
-            tw.lueViinit().lisaaViini(viini);
-            tw.kirjoitaViini();
-            tw.lueArvostelut().getViini(viini).lisaaArvostelu(arvio);
-            tw.kirjoitaArvostelu();
-            
-
+        try {        
+            if (!onkoViiniOlemassa()) {                
+                    tw.lueViinit().lisaaViini(viini);
+                    tw.kirjoitaViini();
+                    tw.lueArvostelut().getViini(viini).lisaaArvostelu(arvio);
+                    tw.kirjoitaArvostelu();
+                     } 
         } catch (Exception ex) {
-            
+            Logger.getLogger(TiedostoWelhonKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public boolean onkoViiniOlemassa() throws Exception {
+        Viini v = new Viini(tyyppiKentta.getText(), nimiKentta.getText(), lajikeKentta.getText(), maaKentta.getText(), vuosiKentta.getText());
+        for (Viini viini : tw.lueViinit().listaaViinit()) {
+            if (viini.equals(v)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

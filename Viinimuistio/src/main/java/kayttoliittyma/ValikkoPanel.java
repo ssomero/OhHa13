@@ -16,7 +16,7 @@ import muistio.tiedosto.TiedostoWelho;
  * @author Sonja
  */
 public class ValikkoPanel extends JPanel {
-    private JButton haku;
+    
     private TiedostoWelho tw;
 
     public ValikkoPanel(TiedostoWelho tw) {
@@ -28,14 +28,16 @@ public class ValikkoPanel extends JPanel {
     private void luoKomponentit() {
         
         JButton hae = new JButton("Hae");
-        JButton lisaa = new JButton("Lisää viini");        
+        JButton lisaa = new JButton("Lisää viini");    
+        JButton arvioi = new JButton("Arvioi muistion viini");
         add(hae);
         add(lisaa);
+        add(arvioi);
         HakemisenKuuntelija hkuuntelija = new HakemisenKuuntelija(hae);
         hae.addActionListener(hkuuntelija);
         LisaamisenKuuntelija lkuuntelija = new LisaamisenKuuntelija(tw, lisaa);
         lisaa.addActionListener(lkuuntelija);
-        
-        
+        ArvioimisenKuuntelija akuuntelija = new ArvioimisenKuuntelija(tw, arvioi);
+        arvioi.addActionListener(akuuntelija);        
     }
 }

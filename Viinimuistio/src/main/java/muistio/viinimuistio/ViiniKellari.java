@@ -129,6 +129,14 @@ public class ViiniKellari {
             }
         }
         return null;
-
     }
+    public String[] viinienNimet() {
+        String[] nimet = new String[viinit.size()];
+        
+            for (int i = 0; i < viinit.size(); i++) {
+            nimet[i] = viinit.get(i).getNimi();
+        }
+         return nimet;
+    }
+    
 }
