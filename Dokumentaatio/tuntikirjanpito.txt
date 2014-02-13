@@ -12,4 +12,4 @@
 5.2.2013  Käyttöliittymä 2h
 6.2.2013  Käyttöliittymä, vanhojen luokkien fiksailu, muutama testi, sekvenssikaaviot 10h
 11.2.2013 Käyttöliittymä 2h
-13.2.2013 Käyttöliittymä, uusia testejä 7,5h
+13.2.2013 Käyttöliittymä, uusia testejä, sekvenssikaavio 8h
