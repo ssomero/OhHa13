@@ -42,26 +42,38 @@ public class TiedostoWelhonLisaamisenKuuntelija implements ActionListener {
         this.arvosanaKentta = arvosanaKentta;
         this.arvioKentta = arvioKentta;
         this.frame = frame;
-    }    
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Viini viini = new Viini(viiniTyyppi.getSelectedItem().toString(), nimiKentta.getText(), lajikeKentta.getText(), maaKentta.getText(), vuosiKentta.getText());
-        Arvostelu arvio = new Arvostelu(Integer.parseInt(arvosanaKentta.getText()));
-        arvio.setKommentti(arvioKentta.getText());
-        try {        
-            if (!onkoViiniOlemassa()) {                
+
+        if (viiniTyyppi.getSelectedItem().toString().equals("") || nimiKentta.getText().equals("")
+                || lajikeKentta.getText().equals("") || maaKentta.getText().equals("") || vuosiKentta.getText().equals("")) {
+            JOptionPane.showMessageDialog(frame, "Viinille tulee syöttää kaikki tiedot!", "Error", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            Viini viini = new Viini(viiniTyyppi.getSelectedItem().toString(), nimiKentta.getText(), lajikeKentta.getText(), maaKentta.getText(), vuosiKentta.getText());
+            Arvostelu arvio = new Arvostelu(Integer.parseInt(arvosanaKentta.getText()));
+            arvio.setKommentti(arvioKentta.getText());
+            try {
+                if (!onkoViiniOlemassa()) {
                     tw.lueViinit().lisaaViini(viini);
                     tw.kirjoitaViini();
                     tw.lueArvostelut().getViini(viini).lisaaArvostelu(arvio);
                     tw.kirjoitaArvostelu();
-                     } 
-        } catch (Exception ex) {
-            Logger.getLogger(TiedostoWelhonLisaamisenKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } catch (Exception ex) {
+
+                Logger.getLogger(TiedostoWelhonLisaamisenKuuntelija.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+
+            JFrame newFrame = new JFrame("Onnistui");
+            JOptionPane.showMessageDialog(newFrame, "Viinin lisääminen onnistui!");
+            frame.setVisible(false);
         }
-        JFrame newFrame = new JFrame("Onnistui");
-        JOptionPane.showMessageDialog(newFrame, "Viinin lisääminen onnistui!");
-        frame.setVisible(false);        
+
+
     }
 
     public boolean onkoViiniOlemassa() throws Exception {

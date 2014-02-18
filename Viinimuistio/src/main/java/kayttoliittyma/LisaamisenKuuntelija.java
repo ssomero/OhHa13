@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 import muistio.tiedosto.TiedostoWelho;
@@ -69,6 +70,9 @@ public class LisaamisenKuuntelija implements ActionListener {
         JTextField arvioKentta = new JTextField();
 
         JButton lisaaNappi = new JButton("Lisää viini!");
+        
+        
+        
         TiedostoWelhonLisaamisenKuuntelija kuuntelija = new TiedostoWelhonLisaamisenKuuntelija(tw, viiniTyyppi, nimiKentta, lajikeKentta, maaKentta, vuosiKentta, arvosanaKentta, arvioKentta, newFrame);
         lisaaNappi.addActionListener(kuuntelija);
         container.add(alkuTeksti);
