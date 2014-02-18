@@ -77,27 +77,27 @@ public class ViiniTest {
     
     @Test(expected=IllegalArgumentException.class)
     public void konstruktoriIlmoittaaPuuttuvistaTiedoista() {
-        viini = new Viini(null, "nimi2", "lajike2", "maa2", "vuosi2");
+        viini = new Viini("", "nimi2", "lajike2", "maa2", "vuosi2");
     }
     
     @Test(expected=IllegalArgumentException.class)
     public void konstruktoriIlmoittaaPuuttuvistaTiedoista2() {
-        viini = new Viini("tyyppi", null, "lajike2", "maa2", "vuosi2");
+        viini = new Viini("tyyppi", "", "lajike2", "maa2", "vuosi2");
     }
     
     @Test(expected=IllegalArgumentException.class)
     public void konstruktoriIlmoittaaPuuttuvistaTiedoista3() {
-        viini = new Viini("tyyppi", "nimi2", null, "maa2", "vuosi2");
+        viini = new Viini("tyyppi", "nimi2", "", "maa2", "vuosi2");
     }
     
     @Test(expected=IllegalArgumentException.class)
     public void konstruktoriIlmoittaaPuuttuvistaTiedoista4() {
-        viini = new Viini("tyyppi", "nimi2", "lajike2", null, "vuosi2");
+        viini = new Viini("tyyppi", "nimi2", "lajike2", "", "vuosi2");
     }
     
     @Test(expected=IllegalArgumentException.class)
     public void konstruktoriIlmoittaaPuuttuvistaTiedoista5() {
-        viini = new Viini("tyyppi", "nimi2", "lajike2", "maa2", null);
+        viini = new Viini("tyyppi", "nimi2", "lajike2", "maa2", "");
     }
 
     @Test

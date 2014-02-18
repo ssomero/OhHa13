@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -22,7 +23,7 @@ import muistio.viinimuistio.Viini;
 public class TiedostoWelhonLisaamisenKuuntelija implements ActionListener {
 
     private TiedostoWelho tw;
-    private JTextField tyyppiKentta;
+    private JComboBox viiniTyyppi;
     private JTextField nimiKentta;
     private JTextField lajikeKentta;
     private JTextField maaKentta;
@@ -31,9 +32,9 @@ public class TiedostoWelhonLisaamisenKuuntelija implements ActionListener {
     private JTextField arvioKentta;
     private JFrame frame;
 
-    public TiedostoWelhonLisaamisenKuuntelija(TiedostoWelho tw, JTextField tyyppiKentta, JTextField nimiKentta, JTextField lajikeKentta, JTextField maaKentta, JTextField vuosiKentta, JTextField arvosanaKentta, JTextField arvioKentta, JFrame frame) {
+    public TiedostoWelhonLisaamisenKuuntelija(TiedostoWelho tw, JComboBox viiniTyyppi, JTextField nimiKentta, JTextField lajikeKentta, JTextField maaKentta, JTextField vuosiKentta, JTextField arvosanaKentta, JTextField arvioKentta, JFrame frame) {
         this.tw = tw;
-        this.tyyppiKentta = tyyppiKentta;
+        this.viiniTyyppi = viiniTyyppi;
         this.nimiKentta = nimiKentta;
         this.lajikeKentta = lajikeKentta;
         this.maaKentta = maaKentta;
@@ -45,7 +46,7 @@ public class TiedostoWelhonLisaamisenKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Viini viini = new Viini(tyyppiKentta.getText(), nimiKentta.getText(), lajikeKentta.getText(), maaKentta.getText(), vuosiKentta.getText());
+        Viini viini = new Viini(viiniTyyppi.getSelectedItem().toString(), nimiKentta.getText(), lajikeKentta.getText(), maaKentta.getText(), vuosiKentta.getText());
         Arvostelu arvio = new Arvostelu(Integer.parseInt(arvosanaKentta.getText()));
         arvio.setKommentti(arvioKentta.getText());
         try {        
@@ -64,7 +65,7 @@ public class TiedostoWelhonLisaamisenKuuntelija implements ActionListener {
     }
 
     public boolean onkoViiniOlemassa() throws Exception {
-        Viini v = new Viini(tyyppiKentta.getText(), nimiKentta.getText(), lajikeKentta.getText(), maaKentta.getText(), vuosiKentta.getText());
+        Viini v = new Viini(viiniTyyppi.getSelectedItem().toString(), nimiKentta.getText(), lajikeKentta.getText(), maaKentta.getText(), vuosiKentta.getText());
         for (Viini viini : tw.lueViinit().listaaViinit()) {
             if (viini.equals(v)) {
                 return true;

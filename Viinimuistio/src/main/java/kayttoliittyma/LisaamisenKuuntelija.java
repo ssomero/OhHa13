@@ -10,6 +10,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -45,11 +46,15 @@ public class LisaamisenKuuntelija implements ActionListener {
         GridLayout layout = new GridLayout(15, 1);
         container.setLayout(layout);
         
+        
         JLabel alkuTeksti = new JLabel("Tähdellä (*) merkityt tiedot ovat pakollisia");
         JLabel tyhja = new JLabel("");
+        
+        String[] viinit = {"punaviini", "valkoviini"} ;
+        JComboBox viiniTyyppi = new JComboBox(viinit);
 
-        JLabel tyyppiTeksti = new JLabel("* Tyyppi (valko- tai punaviini):");
-        JTextField tyyppiKentta = new JTextField();
+        JLabel tyyppiTeksti = new JLabel("");
+        
         JLabel nimiTeksti = new JLabel("* Nimi:");
         JTextField nimiKentta = new JTextField();
         JLabel lajikeTeksti = new JLabel("* Lajike:");
@@ -64,12 +69,12 @@ public class LisaamisenKuuntelija implements ActionListener {
         JTextField arvioKentta = new JTextField();
 
         JButton lisaaNappi = new JButton("Lisää viini!");
-        TiedostoWelhonLisaamisenKuuntelija kuuntelija = new TiedostoWelhonLisaamisenKuuntelija(tw, tyyppiKentta, nimiKentta, lajikeKentta, maaKentta, vuosiKentta, arvosanaKentta, arvioKentta, newFrame);
+        TiedostoWelhonLisaamisenKuuntelija kuuntelija = new TiedostoWelhonLisaamisenKuuntelija(tw, viiniTyyppi, nimiKentta, lajikeKentta, maaKentta, vuosiKentta, arvosanaKentta, arvioKentta, newFrame);
         lisaaNappi.addActionListener(kuuntelija);
         container.add(alkuTeksti);
         container.add(tyhja);
         container.add(tyyppiTeksti);
-        container.add(tyyppiKentta);
+        container.add(viiniTyyppi);
         container.add(nimiTeksti);
         container.add(nimiKentta);
         container.add(lajikeTeksti);

@@ -1,3 +1,4 @@
 auto:66:hyvA
 Huksun vesi:40:
 Huksun vesi:98:raikasta
+Yali:89:

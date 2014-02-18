@@ -43,7 +43,7 @@ public class Viini implements Comparable<Viini> {
      * @param vuosi
      */
     public Viini(String tyyppi, String nimi, String lajike, String maa, String vuosi) {
-        if (tyyppi==null || nimi==null || lajike==null || maa==null || vuosi==null) {
+        if (tyyppi=="" || nimi=="" || lajike=="" || maa=="" || vuosi=="") {
             throw new IllegalArgumentException("Viinille tulee syöttää kaikki tiedot!");
         }
         this.tyyppi = tyyppi;

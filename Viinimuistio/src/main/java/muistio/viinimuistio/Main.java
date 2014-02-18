@@ -1,3 +1,5 @@
+package muistio.viinimuistio;
+
 
 import javax.swing.SwingUtilities;
 import kayttoliittyma.Kayttoliittyma;

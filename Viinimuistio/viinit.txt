@@ -5,3 +5,4 @@ valkoviini:tuplaviini:tupla:tuplamaa:2020
 puna:triplaviini:rtutu:fdmfs:432
 quatroviini:auto:vituiksmeni:turku:2010
 PUNAVIINI:Huksun vesi:kraana:suoni:2014
+valkoviini:Yali:sauvignon blanc:Australia:2012
