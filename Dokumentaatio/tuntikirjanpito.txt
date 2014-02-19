@@ -13,3 +13,6 @@
 6.2.2013  Käyttöliittymä, vanhojen luokkien fiksailu, muutama testi, sekvenssikaaviot 10h
 11.2.2013 Käyttöliittymä 2h
 13.2.2013 Käyttöliittymä, uusia testejä, sekvenssikaavio 8h
+17.2.2013 Koodikatselmointi 1,5h
+18.2.2013 Käyttöliittymän hakutoiminto, 1h
+19.2.2013 Käyttöliittymän hakutoiminto, arvostelun ja lisäämisen korjauksia käyttöliittymässä 5h
