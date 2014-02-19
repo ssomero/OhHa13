@@ -4,6 +4,7 @@
  */
 package kayttoliittyma;
 
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
@@ -71,6 +72,7 @@ public class TiedostoWelhonLisaamisenKuuntelija implements ActionListener {
             JFrame newFrame = new JFrame("Onnistui");
             JOptionPane.showMessageDialog(newFrame, "Viinin lisääminen onnistui!");
             frame.setVisible(false);
+            
         }
 
 

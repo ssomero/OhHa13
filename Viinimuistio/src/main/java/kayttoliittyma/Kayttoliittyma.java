@@ -32,6 +32,7 @@ public class Kayttoliittyma implements Runnable {
     public Kayttoliittyma(TiedostoWelho tw) throws Exception {
         this.tw = tw;
         this.kellari = tw.lueViinit();
+        this.kellari = tw.lueArvostelut();
     }
 
     @Override
@@ -48,7 +49,7 @@ public class Kayttoliittyma implements Runnable {
         frame.setVisible(true);
     }
 
-    private void luoKomponentit(Container container) throws Exception {
+    public void luoKomponentit(Container container) throws Exception {
         GridLayout layout = new GridLayout(4, 1);
         container.setLayout(layout);
         JLabel tervetuloa = new JLabel("<html>Tervetuloa viinimuistioon!<br>"
@@ -57,8 +58,8 @@ public class Kayttoliittyma implements Runnable {
         JLabel mitatehdaan = new JLabel("Mitä haluat tehdä?");
 
         String viinit = "";
-        for (Viini vk : kellari.listaaViinit()) {
-            viinit += vk.getNimi() + " " + vk.getVuosi() + "\n";
+        for (Viini vk : kellari.haeParhausjarjestyksessa()) {
+            viinit += vk.getNimi() + ", " + vk.getVuosi() +", arvostelujen keskiarvo: "+ vk.getKeskiarvo() +"\n\n";
         }
         JTextArea listaus = new JTextArea(viinit);
         listaus.setEditable(false);
@@ -74,9 +75,13 @@ public class Kayttoliittyma implements Runnable {
         return frame;
     }
 
-    public void muistionViinit() {
-        String lista[] = null;
-        for (Viini viini : kellari.haeParhausjarjestyksessa()) {
+    public void piirraViinit() {
+        String viinit = "";
+        for (Viini vk : kellari.haeParhausjarjestyksessa()) {
+            viinit += vk.getNimi() + ", " + vk.getVuosi() +", arvostelujen keskiarvo: "+ vk.getKeskiarvo() +"\n";
         }
+        JTextArea listaus = new JTextArea(viinit);
+        listaus.setEditable(false);
+        JScrollPane scroll = new JScrollPane(listaus);
     }
 }

@@ -45,8 +45,7 @@ public class LisaamisenKuuntelija implements ActionListener {
     
     public void luoViininLisays(Container container, JFrame newFrame) {
         GridLayout layout = new GridLayout(15, 1);
-        container.setLayout(layout);
-        
+        container.setLayout(layout);        
         
         JLabel alkuTeksti = new JLabel("Tähdellä (*) merkityt tiedot ovat pakollisia");
         JLabel tyhja = new JLabel("");
@@ -69,9 +68,7 @@ public class LisaamisenKuuntelija implements ActionListener {
         JLabel arvioTeksti = new JLabel("Kommentti:");
         JTextField arvioKentta = new JTextField();
 
-        JButton lisaaNappi = new JButton("Lisää viini!");
-        
-        
+        JButton lisaaNappi = new JButton("Lisää viini!");       
         
         TiedostoWelhonLisaamisenKuuntelija kuuntelija = new TiedostoWelhonLisaamisenKuuntelija(tw, viiniTyyppi, nimiKentta, lajikeKentta, maaKentta, vuosiKentta, arvosanaKentta, arvioKentta, newFrame);
         lisaaNappi.addActionListener(kuuntelija);

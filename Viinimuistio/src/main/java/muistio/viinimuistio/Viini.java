@@ -92,6 +92,9 @@ public class Viini implements Comparable<Viini> {
         for (Arvostelu a : arvostelut) {
             summa += a.getArvosana();
         }
+        if(arvostelut.size()==0) {
+            return 0;
+        }        
         return (double) summa / arvostelut.size();
     }
 

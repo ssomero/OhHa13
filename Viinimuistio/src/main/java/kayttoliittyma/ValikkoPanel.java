@@ -31,7 +31,7 @@ public class ValikkoPanel extends JPanel {
         add(hae);
         add(lisaa);
         add(arvioi);
-        HakemisenKuuntelija hkuuntelija = new HakemisenKuuntelija(hae);
+        HakemisenKuuntelija hkuuntelija = new HakemisenKuuntelija(tw, hae);
         hae.addActionListener(hkuuntelija);
         LisaamisenKuuntelija lkuuntelija = new LisaamisenKuuntelija(tw, lisaa);
         lisaa.addActionListener(lkuuntelija);

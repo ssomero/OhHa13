@@ -18,6 +18,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import muistio.tiedosto.TiedostoWelho;
 
 /**
  *
@@ -25,9 +26,11 @@ import javax.swing.JTextField;
  */
 public class HakemisenKuuntelija implements ActionListener {
 
-    JButton haku;
+    private JButton haku;
+    private TiedostoWelho tw;
 
-    public HakemisenKuuntelija(JButton haku) {
+    public HakemisenKuuntelija(TiedostoWelho tw, JButton haku) {
+        this.tw = tw;
         this.haku = haku;
     }
 
@@ -50,7 +53,7 @@ public class HakemisenKuuntelija implements ActionListener {
         JLabel tyhjaLoppuun = new JLabel("<html><br></html>");
 
         ButtonGroup boxGroup = new ButtonGroup();
-        JRadioButton hakuNimella = new JRadioButton("Nimi");
+        JRadioButton hakuNimella = new JRadioButton("Nimi", true);
         JRadioButton hakuMaalla = new JRadioButton("Maa");
         JRadioButton hakuTyypila = new JRadioButton("Tyyppi");
         boxGroup.add(hakuNimella);
@@ -58,6 +61,8 @@ public class HakemisenKuuntelija implements ActionListener {
         boxGroup.add(hakuTyypila);
 
         JButton hakuNappi = new JButton("Hae!");
+        TiedostoWelhonHakuKuuntelija kuuntelija = new TiedostoWelhonHakuKuuntelija(tw, boxGroup, hakusanaKentta);
+        hakuNappi.addActionListener(kuuntelija);
 
         container.add(hakusanaTeksti);
         container.add(hakusanaKentta);
