@@ -76,16 +76,10 @@ public class TiedostoWelho {
             if (osat.length > 2) {
                 kommentti = osat[2];
             }
-            Viini arvosteltava = null;
-            for (Viini viini : viinikellari.listaaViinit()) {
-                if (viini.getNimi().equals(nimi)) {
-                    arvosteltava = viini;
-                }
-            }
+            Viini arvosteltava = etsiArvosteltava(nimi);            
             if (arvosteltava == null) {
                 continue;
             }
-
             Arvostelu arvostelu = new Arvostelu(Integer.parseInt(arvosanastring));
             if (kommentti.isEmpty()) {
                 arvostelu.setKommentti("");
@@ -122,5 +116,14 @@ public class TiedostoWelho {
             kirjoittaja.write(viinit.getNimiJaArvosteluTiedostomuoto());
         }        
         kirjoittaja.close();
+    }
+
+    private Viini etsiArvosteltava(String nimi) {
+        for (Viini viini : viinikellari.listaaViinit()) {
+            if (viini.getNimi().equals(nimi)) {
+               return viini;
+            }
+        }
+        return null;
     }
 }

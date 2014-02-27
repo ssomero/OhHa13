@@ -2,6 +2,7 @@ Triade:69:
 Triade:93:
 Yalumba:80:Maku parani kun pullo oli ollut vähän aikaa auki
 Yalumba:75:Hyvää pizzan kanssa
+Yalumba:90:
 Cono Sur:67:Parista lasillisesta tuli päänsärky
 Cono Sur:77:Hyvää pastan kanssa
 El Tiempo:87:
@@ -9,3 +10,5 @@ El Tiempo:40:Timppa on Timppa...
 Blue Nun:59:
 J.P. Chenet:55:
 J.P. Chenet:55:Kokeillaan tehdä ihan sikasikasika pitkä kommentti että näkee meneekö kommentti textarean yli vai näkyykö kaikki ikkunassa!
+El Tiempo:45:vältettävä
+Yalumba:79:
