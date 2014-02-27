@@ -14,7 +14,7 @@ import muistio.viinimuistio.Viini;
 import muistio.viinimuistio.ViiniKellari;
 
 /**
- *TiedostoWelho lukee ViiniKellaria ja kirjoittaa sinne.
+ * TiedostoWelho lukee ViiniKellaria ja kirjoittaa sinne.
  * @author Sonja
  */
 public class TiedostoWelho {
@@ -40,8 +40,9 @@ public class TiedostoWelho {
     }
 
     /**
-     *
-     * @return @throws Exception
+     * Lukee tiedostossa olevat viinit ja lisää ne kellariin.
+     * @return @throws Exception 
+     * @throws Exception
      */
     public ViiniKellari lueViinit() throws Exception {
         Scanner lukija = new Scanner(viinitiedosto);
@@ -57,13 +58,13 @@ public class TiedostoWelho {
             viinikellari.lisaaViini(viini);
         }
         return viinikellari;
-
     }
 
-    //liian pitkä metodi, yritetään pilkkoa! jos esim pelkkä lue()? foresta oma metodi?
+    
     /**
-     *
-     * @return @throws FileNotFoundException
+     * Lukee tiedostossa olevat arvostelut ja lisää ne viineihin.
+     * @return @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
     public ViiniKellari lueArvostelut() throws FileNotFoundException {
         Scanner lukija = new Scanner(arviotiedosto);
@@ -80,20 +81,14 @@ public class TiedostoWelho {
             if (arvosteltava == null) {
                 continue;
             }
-            Arvostelu arvostelu = new Arvostelu(Integer.parseInt(arvosanastring));
-            if (kommentti.isEmpty()) {
-                arvostelu.setKommentti("");
-            } else {
-                arvostelu.setKommentti(kommentti);
-            }
-            arvosteltava.lisaaArvostelu(arvostelu);
+            lisaaArvostelu(arvosanastring, kommentti, arvosteltava);
         }
         return viinikellari;
     }
     
     
     /**
-     *
+     * Kirjoittaa viinikellarin viinit tiedostoon.
      * @throws IOException
      */
     public void kirjoitaViini() throws IOException {
@@ -107,7 +102,7 @@ public class TiedostoWelho {
     }
 
     /**
-     *
+     * Kirjoittaa viinikellarin viinien arvostelut tiedostoon
      * @throws IOException
      */
     public void kirjoitaArvostelu() throws IOException {
@@ -118,6 +113,10 @@ public class TiedostoWelho {
         kirjoittaja.close();
     }
 
+    /**
+     * Apumetodi lueArvostelut -metodille, joka etsii
+     * kellarista oikean viinin, jolle arvostelu luetaan.
+     */
     private Viini etsiArvosteltava(String nimi) {
         for (Viini viini : viinikellari.listaaViinit()) {
             if (viini.getNimi().equals(nimi)) {
@@ -125,5 +124,20 @@ public class TiedostoWelho {
             }
         }
         return null;
+    }
+    
+    /**
+     * Apumetodi lueArvostelut -metodille, joka lisää
+     * halutulle viinille arvostelun.
+     * @throws NumberFormatException
+     */
+    private void lisaaArvostelu(String arvosanastring, String kommentti, Viini arvosteltava) throws NumberFormatException {
+        Arvostelu arvostelu = new Arvostelu(Integer.parseInt(arvosanastring));
+        if (kommentti.isEmpty()) {
+            arvostelu.setKommentti("");
+        } else {
+            arvostelu.setKommentti(kommentti);
+        }
+        arvosteltava.lisaaArvostelu(arvostelu);
     }
 }
