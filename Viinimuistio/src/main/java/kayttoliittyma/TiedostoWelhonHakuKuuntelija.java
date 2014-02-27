@@ -18,6 +18,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -44,10 +45,7 @@ public class TiedostoWelhonHakuKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-
         try {
-
             JFrame frame = new JFrame("Haun tulokset");
             frame.setPreferredSize(new Dimension(700, 500));
             frame.pack();
@@ -59,7 +57,6 @@ public class TiedostoWelhonHakuKuuntelija implements ActionListener {
     }
 
     public void luoHakutulos(Container container) throws Exception {
-
         String valittu = "";
         for (Enumeration<AbstractButton> euhg = buttonGroup.getElements(); euhg.hasMoreElements();) {
             AbstractButton button = euhg.nextElement();
@@ -67,15 +64,16 @@ public class TiedostoWelhonHakuKuuntelija implements ActionListener {
                 valittu += button.getText();
                 switch (valittu) {
                     case "Nimi":
-                        {
+                        {                            
                             GridLayout layout = new GridLayout(4, 1);
                             container.setLayout(layout);
                             JLabel teksti = new JLabel("Tulokset:");
                             container.add(teksti);
-//                            List<Viini> haut = tw.lueViinit().haeNimenMukaan(hakusanaKentta.getText().toString());
-                            String tulokset = "";  
+                            String tulokset = "";
+                            String vali = "---------------";
                             for (Viini v : tw.lueViinit().haeNimenMukaan(hakusanaKentta.getText())) {
-                                tulokset += v.toString() + "\n";
+                                tulokset += vali+"\n"+v.toString() + "\n" +
+                                v.stringArvostelut()+ vali;                                
                             }
                             JTextArea tulos = new JTextArea(tulokset);
                             tulos.setEditable(false);
@@ -91,8 +89,10 @@ public class TiedostoWelhonHakuKuuntelija implements ActionListener {
                             container.add(teksti);
                             List<Viini> haut = tw.lueViinit().haeMaanMukaan(hakusanaKentta.getText().toString());
                             String tulokset = "";
+                            String vali = "---------------";
                             for (Viini v : haut) {
-                                tulokset += v.toString() + "\n";
+                                tulokset += vali+"\n"+v.toString() + "\n"+
+                                        v.stringArvostelut()+vali;
                             }
                             JTextArea tulos = new JTextArea(tulokset);
                             tulos.setEditable(false);
@@ -100,13 +100,30 @@ public class TiedostoWelhonHakuKuuntelija implements ActionListener {
                             container.add(scroll);
                             break;
                         }
-                    case "Tyyppi":
+                    case "Hae kaikki valkoviinit":
                         {
                             GridLayout layout = new GridLayout(4, 1);
                             container.setLayout(layout);
                             JLabel teksti = new JLabel("Tulokset:");
                             container.add(teksti);
-                            List<Viini> haut = tw.lueViinit().haeTyypinMukaan(hakusanaKentta.getText().toString());
+                            List<Viini> haut = tw.lueViinit().haeTyypinMukaan("valkoviini");
+                            String tulokset = "";
+                            for (Viini v : haut) {
+                                tulokset += v.toString();
+                            }
+                            JTextArea tulos = new JTextArea(tulokset);
+                            tulos.setEditable(false);
+                            JScrollPane scroll = new JScrollPane(tulos);
+                            container.add(scroll);
+                            break;
+                        } 
+                    case "Hae kaikki punaviinit":
+                        {
+                            GridLayout layout = new GridLayout(4, 1);
+                            container.setLayout(layout);
+                            JLabel teksti = new JLabel("Tulokset:");
+                            container.add(teksti);
+                            List<Viini> haut = tw.lueViinit().haeTyypinMukaan("punaviini");
                             String tulokset = "";
                             for (Viini v : haut) {
                                 tulokset += v.toString();
@@ -121,8 +138,7 @@ public class TiedostoWelhonHakuKuuntelija implements ActionListener {
             }
 
         }
-
-
-
     }
-}
+     
+     }
+

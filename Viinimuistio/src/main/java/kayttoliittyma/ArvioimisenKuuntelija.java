@@ -49,9 +49,7 @@ public class ArvioimisenKuuntelija implements ActionListener{
         container.setLayout(layout); 
         
         JComboBox viinit = new JComboBox(tw.lueViinit().viinienNimet());        
-        
-        JLabel alkuTeksti = new JLabel("Tähdellä (*) merkityt tiedot ovat pakollisia");
-        JLabel tyhja1 = new JLabel("");
+        JLabel alkuTeksti = new JLabel("Tähdellä (*) merkityt tiedot ovat pakollisia");        
         JLabel arvosanaTeksti = new JLabel("* Arvosana (40-100):");
         JTextField arvosanaKentta = new JTextField();
         JLabel arvioTeksti = new JLabel("Kommentti:");

@@ -53,13 +53,13 @@ public class Kayttoliittyma implements Runnable {
         GridLayout layout = new GridLayout(4, 1);
         container.setLayout(layout);
         JLabel tervetuloa = new JLabel("<html>Tervetuloa viinimuistioon!<br>"
-                + "Täällä voit selata talletettuja viinejä, sekä lisätä uusia viinejä<br><br>"
-                + "Muistioon talletetut viinit:</html>");
+                + "Täällä voit hakea ja arvostella talletettuja viinejä, sekä lisätä uusia viinejä<br><br>"
+                + "Muistioon talletetut viinit keskiarvon mukaan parhausjärjestyksessä:</html>");
         JLabel mitatehdaan = new JLabel("Mitä haluat tehdä?");
 
         String viinit = "";
         for (Viini vk : kellari.haeParhausjarjestyksessa()) {
-            viinit += vk.getNimi() + ", " + vk.getVuosi() +", arvostelujen keskiarvo: "+ vk.getKeskiarvo() +"\n\n";
+            viinit += vk.getNimi()+" "+ vk.getVuosi()+", "+ vk.getTyyppi()+", arvostelujen keskiarvo: "+ vk.getKeskiarvo() +"\n\n";
         }
         JTextArea listaus = new JTextArea(viinit);
         listaus.setEditable(false);

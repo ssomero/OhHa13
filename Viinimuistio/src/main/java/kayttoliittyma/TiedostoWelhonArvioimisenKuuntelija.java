@@ -38,13 +38,15 @@ public class TiedostoWelhonArvioimisenKuuntelija implements ActionListener {
         this.arvioKentta = arvioKentta;
         this.frame = frame;
     }
+    
+        
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(arvosanaKentta.getText().equals("") || Integer.parseInt(arvosanaKentta.getText())>100 ||
-                Integer.parseInt(arvosanaKentta.getText())<40) {
+                Integer.parseInt(arvosanaKentta.getText())<40 ) {
             JOptionPane.showMessageDialog(frame, "Syötä arvosana väliltä 40-100!", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {        
+        } else {
         try {
             Arvostelu arvio = new Arvostelu(Integer.parseInt(arvosanaKentta.getText()));
             arvio.setKommentti(arvioKentta.getText());
@@ -59,4 +61,7 @@ public class TiedostoWelhonArvioimisenKuuntelija implements ActionListener {
         }
     }
     }
+    
+    
+   
 }

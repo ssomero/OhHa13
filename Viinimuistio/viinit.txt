@@ -1,8 +1,6 @@
-punaviini:kumala:pinot noir:Chile:2011
-valkoviini:Yalumba:riesling:Australia:2012
-valkoviini:Triade:frigo:italia:2009
-valkoviini:tuplaviini:tupla:tuplamaa:2020
-puna:triplaviini:rtutu:fdmfs:432
-quatroviini:auto:vituiksmeni:turku:2010
-PUNAVIINI:Huksun vesi:kraana:suoni:2014
-valkoviini:Yali:sauvignon blanc:Australia:2012
+valkoviini:Yalumba:Rielsing:Australia:2012
+valkoviini:Cono Sur:Riesling:Chile:2013
+valkoviini:Triade:Chardonnay:Italia:2012
+punaviini:Blue Nun:Merlot:Saksa:2012
+punaviini:J.P. Chenet:Grenache Noir:Ranska:2012
+punaviini:El Tiempo:Shiraz:Espanja:2011

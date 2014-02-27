@@ -1,4 +1,8 @@
-auto:66:hyvA
-Huksun vesi:40:
-Huksun vesi:98:raikasta
-Yali:89:
+Yalumba:80:Maku parani kun pullo oli ollut vähän aikaa auki
+Yalumba:75:Hyvää pizzan kanssa
+Cono Sur:67:Parista lasillisesta tuli päänsärky
+Cono Sur:77:Hyvää pastan kanssa
+Triade:69:
+Blue Nun:59:
+J.P. Chenet:55:
+El Tiempo:87:

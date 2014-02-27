@@ -1,0 +1,10 @@
+
+Käyttöohjeet:
+
+Ohjelman avautuessa ikkunassa näkyy muistioon talletetut viinit parhausjärjestyksessä.
+Lisäksi ikkunan alareunasta voi valita, haluaako hakea viinejä, lisätä uuden vai
+arvostella muistiossa jo olevaa viiniä. Ohjelma avaa uuden ikkunan, riippuen mitä
+nappulaa on päättänyt painaa. Viiniä tai arvostelua ei lisätä, jos sille syötetyt
+tiedot ovat puuttelliset. Tässä tapauksessa aukeaa virheilmoitus.
+Ohjelma ja sen avaamat ikkunat sulkeutuvat ikkunoiden oikeassa
+yläreunassa olevasta sulkemisnappulasta (X).

@@ -1,0 +1,9 @@
+
+Ohjelman rakenteen kuvaus:
+
+Käyttöliittymässä luodaan TiedostoWelho, joka lukee viini- ja arvostelutiedostoja. TiedostoWelho luo ensin tyhjän ViiniKellarin.
+Mikäli viini- ja arvostelutiedostot ovat tyhjät, niin myös ViiniKellari pysyy tyhjänä. Jos tiedostoihin on
+talletettu viinejä ja niiden arvosteluja, lisää TiedostoWelho nämä viinit&arvostelut ViiniKellariin.
+
+ViiniKellarissa on rajaton määrä viinejä. ViiniKellarissa olevilla veillä voi olla rajaton määrä arvosteluja, kuitenkin vähintään
+yksi, sillä viiniä lisätessä arvosana on pakko antaa.

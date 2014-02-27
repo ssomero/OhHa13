@@ -60,7 +60,7 @@ public class TiedostoWelhonLisaamisenKuuntelija implements ActionListener {
                 if (!onkoViiniOlemassa()) {
                     tw.lueViinit().lisaaViini(viini);
                     tw.kirjoitaViini();
-                    tw.lueArvostelut().getViini(viini).lisaaArvostelu(arvio);
+                    tw.lueViinit().getViini(viini).lisaaArvostelu(arvio);
                     tw.kirjoitaArvostelu();
                 }
             } catch (Exception ex) {

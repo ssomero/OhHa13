@@ -55,10 +55,12 @@ public class HakemisenKuuntelija implements ActionListener {
         ButtonGroup boxGroup = new ButtonGroup();
         JRadioButton hakuNimella = new JRadioButton("Nimi", true);
         JRadioButton hakuMaalla = new JRadioButton("Maa");
-        JRadioButton hakuTyypila = new JRadioButton("Tyyppi");
+        JRadioButton hakuValkkarit = new JRadioButton("Hae kaikki valkoviinit");
+        JRadioButton hakuPunkut = new JRadioButton("Hae kaikki punaviinit");
         boxGroup.add(hakuNimella);
         boxGroup.add(hakuMaalla);
-        boxGroup.add(hakuTyypila);
+        boxGroup.add(hakuValkkarit);
+        boxGroup.add(hakuPunkut);
 
         JButton hakuNappi = new JButton("Hae!");
         TiedostoWelhonHakuKuuntelija kuuntelija = new TiedostoWelhonHakuKuuntelija(tw, boxGroup, hakusanaKentta);
@@ -68,7 +70,8 @@ public class HakemisenKuuntelija implements ActionListener {
         container.add(hakusanaKentta);
         container.add(hakuNimella);
         container.add(hakuMaalla);
-        container.add(hakuTyypila);
+        container.add(hakuValkkarit);
+        container.add(hakuPunkut);
         container.add(hakuNappi);
         container.add(tyhjaLoppuun);
     }
