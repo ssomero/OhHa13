@@ -63,82 +63,71 @@ public class TiedostoWelhonHakuKuuntelija implements ActionListener {
             if (button.isSelected()) {
                 valittu += button.getText();
                 switch (valittu) {
-                    case "Nimi":
-                        {                            
-                            GridLayout layout = new GridLayout(4, 1);
-                            container.setLayout(layout);
-                            JLabel teksti = new JLabel("Tulokset:");
-                            container.add(teksti);
-                            String tulokset = "";
-                            String vali = "---------------";
-                            for (Viini v : tw.lueViinit().haeNimenMukaan(hakusanaKentta.getText())) {
-                                tulokset += vali+"\n"+v.toString() + "\n" +
-                                v.stringArvostelut()+ vali;                                
-                            }
-                            JTextArea tulos = new JTextArea(tulokset);
-                            tulos.setEditable(false);
-                            JScrollPane scroll = new JScrollPane(tulos);
-                            container.add(scroll);
-                            break;
+                    case "Nimi": {
+                        GridLayout layout = new GridLayout(2, 1);
+                        container.setLayout(layout);
+                        JLabel teksti = new JLabel("Tulokset:");
+                        container.add(teksti);
+                        String tulokset = "";
+                        String vali = "---------------";
+                        for (Viini v : tw.lueViinit().haeNimenMukaan(hakusanaKentta.getText())) {
+                            tulokset += vali + "\n" + v.toString() + "\n"
+                                    + v.stringArvostelut() + vali;
                         }
-                    case "Maa":
-                        {
-                            GridLayout layout = new GridLayout(4, 1);
-                            container.setLayout(layout);
-                            JLabel teksti = new JLabel("Tulokset:");
-                            container.add(teksti);
-                            List<Viini> haut = tw.lueViinit().haeMaanMukaan(hakusanaKentta.getText().toString());
-                            String tulokset = "";
-                            String vali = "---------------";
-                            for (Viini v : haut) {
-                                tulokset += vali+"\n"+v.toString() + "\n"+
-                                        v.stringArvostelut()+vali;
-                            }
-                            JTextArea tulos = new JTextArea(tulokset);
-                            tulos.setEditable(false);
-                            JScrollPane scroll = new JScrollPane(tulos);
-                            container.add(scroll);
-                            break;
+                        JTextArea tulos = new JTextArea(tulokset);
+                        tulos.setEditable(false);
+                        JScrollPane scroll = new JScrollPane(tulos);
+                        container.add(scroll);
+                        break;
+                    }
+                    case "Maa": {
+                        GridLayout layout = new GridLayout(2, 1);
+                        container.setLayout(layout);
+                        JLabel teksti = new JLabel("Tulokset:");
+                        container.add(teksti);
+                        List<Viini> haut = tw.lueViinit().haeMaanMukaan(hakusanaKentta.getText().toString());
+                        String tulokset = "";
+                        String vali = "---------------";
+                        for (Viini v : haut) {
+                            tulokset += vali + "\n" + v.toString() + "\n"
+                                    + v.stringArvostelut() + vali;
                         }
-                    case "Hae kaikki valkoviinit":
-                        {
-                            GridLayout layout = new GridLayout(4, 1);
-                            container.setLayout(layout);
-                            JLabel teksti = new JLabel("Tulokset:");
-                            container.add(teksti);
-                            List<Viini> haut = tw.lueViinit().haeTyypinMukaan("valkoviini");
-                            String tulokset = "";
-                            for (Viini v : haut) {
-                                tulokset += v.toString();
-                            }
-                            JTextArea tulos = new JTextArea(tulokset);
-                            tulos.setEditable(false);
-                            JScrollPane scroll = new JScrollPane(tulos);
-                            container.add(scroll);
-                            break;
-                        } 
-                    case "Hae kaikki punaviinit":
-                        {
-                            GridLayout layout = new GridLayout(4, 1);
-                            container.setLayout(layout);
-                            JLabel teksti = new JLabel("Tulokset:");
-                            container.add(teksti);
-                            List<Viini> haut = tw.lueViinit().haeTyypinMukaan("punaviini");
-                            String tulokset = "";
-                            for (Viini v : haut) {
-                                tulokset += v.toString();
-                            }
-                            JTextArea tulos = new JTextArea(tulokset);
-                            tulos.setEditable(false);
-                            JScrollPane scroll = new JScrollPane(tulos);
-                            container.add(scroll);
-                            break;
-                        }
+                        JTextArea tulos = new JTextArea(tulokset);
+                        tulos.setEditable(false);
+                        JScrollPane scroll = new JScrollPane(tulos);
+                        container.add(scroll);
+                        break;
+                    }
+                    case "Hae kaikki valkoviinit": {
+                        haeTyyppi("valkoviini", container);
+                        break;
+                    }
+                    case "Hae kaikki punaviinit": {
+                        haeTyyppi("punaviini", container);
+                        break;
+                    }
                 }
             }
 
         }
     }
-     
-     }
 
+    public void haeTyyppi(String tyyppi, Container cont) throws Exception {
+        GridLayout layout = new GridLayout(2, 1);
+        cont.setLayout(layout);
+        JLabel teksti = new JLabel("Tulokset:");
+        cont.add(teksti);
+        List<Viini> haut = tw.lueViinit().haeTyypinMukaan(tyyppi);
+        String tulokset = "";
+        String vali = "---------------";
+        for (Viini v : haut) {
+            tulokset += vali + "\n" + v.toString() + "\n"
+                    + v.stringArvostelut() + vali;
+        }
+        JTextArea tulos = new JTextArea(tulokset);
+        tulos.setEditable(false);
+        JScrollPane scroll = new JScrollPane(tulos);
+        cont.add(scroll);
+
+    }
+}

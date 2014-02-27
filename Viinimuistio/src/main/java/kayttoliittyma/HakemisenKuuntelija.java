@@ -48,7 +48,8 @@ public class HakemisenKuuntelija implements ActionListener {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
 
-        JLabel hakusanaTeksti = new JLabel("Hakusana:");
+        JLabel hakusanaTeksti = new JLabel("<html>Hakemalla näet hakemiesi viinien kaikki arvostelut kommentteineen. <br>"
+                + "Jos haet nimen tai maan mukaan, anna hakusana:</html>");
         JTextField hakusanaKentta = new JTextField();
         JLabel tyhjaLoppuun = new JLabel("<html><br></html>");
 

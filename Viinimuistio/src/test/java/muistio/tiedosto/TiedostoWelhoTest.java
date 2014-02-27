@@ -4,15 +4,13 @@
  */
 package muistio.tiedosto;
 
-import junit.framework.Assert;
 import muistio.viinimuistio.Viini;
-import muistio.viinimuistio.ViiniKellari;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
