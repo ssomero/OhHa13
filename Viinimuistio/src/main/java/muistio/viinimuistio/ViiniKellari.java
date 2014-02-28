@@ -107,7 +107,7 @@ public class ViiniKellari {
     }
 
     /**
-     *
+     * Poistaa viinin kellarista.
      * @param viini
      */
     public void poistaViini(Viini viini) {
@@ -117,12 +117,7 @@ public class ViiniKellari {
                iteraattori.remove();
            }
        }
-//        for (Iterator<Viini> v = viinit.iterator(); v.hasNext();) {
-//            Viini vino = v.next();
-//            if (vino.equals(viini)) {
-//                v.remove();
-//            }
-//        }
+
     }
 
     public Viini getViini(Viini viini) {
@@ -133,6 +128,10 @@ public class ViiniKellari {
         }
         return null;
     }
+    
+    /**
+     * Palauttaa String -taulun viinien nimistä. 
+     */
     public String[] viinienNimet() {
         String[] nimet = new String[viinit.size()];
         

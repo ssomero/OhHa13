@@ -20,7 +20,8 @@ import muistio.viinimuistio.Viini;
 import muistio.viinimuistio.ViiniKellari;
 
 /**
- *
+ * Käyttöliittymäpaketin "pääluokka". Lukee TiedostoWelhon avulla viinit ja arvostelut
+ * ViiniKellariin.
  * @author Sonja
  */
 public class Kayttoliittyma implements Runnable {

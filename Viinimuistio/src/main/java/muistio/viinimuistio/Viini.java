@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- *Tämä on viinin luokka. Jokaiselle viinin ilmentymälle luodaan oma arvostelulista,
- * johon voidaan lisätä kyseisen viinin arvosteluja. Lisäksi viinejä voi verrata
- * compareTo-metodilla siten, että verrattavat ovat samoja ainoastaan, 
- * jos viineille annetuista parametreista kaikki ovat samat.
+ * Tämä on viinin luokka. Jokaiselle viinin ilmentymälle luodaan oma
+ * arvostelulista, johon voidaan lisätä kyseisen viinin arvosteluja. Lisäksi
+ * viinejä voi verrata compareTo-metodilla siten, että verrattavat ovat samoja
+ * ainoastaan, jos viineille annetuista parametreista kaikki ovat samat.
+ *
  * @author Sonja
  */
 public class Viini implements Comparable<Viini> {
@@ -25,26 +26,28 @@ public class Viini implements Comparable<Viini> {
     private List<Arvostelu> arvostelut;
 
     /**
-     * Kosntruktorissa luodaan viini-olio, ja tarkastetaan, että kaikki parametrit on syötetty.
-     * 
-     *Viinin tyyppi, puna- tai valkoviini 
+     * Kosntruktorissa luodaan viini-olio, ja tarkastetaan, että kaikki
+     * parametrit on syötetty.
+     *
+     * Viinin tyyppi, puna- tai valkoviini
+     *
      * @param tyyppi
-     * 
+     *
      * Viinin nimi
      * @param nimi
-     * 
+     *
      * Viinin rypälelajike
      * @param lajike
-     * 
+     *
      * Viinin valmistusmaa
      * @param maa
-     * 
+     *
      * Viinin valmistusvuosi
      * @param vuosi
      */
     public Viini(String tyyppi, String nimi, String lajike, String maa, String vuosi) {
         if (tyyppi.equals("")
-             || nimi.equals("") || lajike.equals("") || maa.equals("") || vuosi.equals("")) {
+                || nimi.equals("") || lajike.equals("") || maa.equals("") || vuosi.equals("")) {
             throw new IllegalArgumentException("Viinille tulee syöttää kaikki tiedot!");
         }
         this.tyyppi = tyyppi;
@@ -56,13 +59,13 @@ public class Viini implements Comparable<Viini> {
     }
 
     /**
-     *Metodi lisää parametrina olleen arvostelun viinin arvosteluihin.
+     * Metodi lisää parametrina olleen arvostelun viinin arvosteluihin.
+     *
      * @param a
      */
     public void lisaaArvostelu(Arvostelu a) {
         this.arvostelut.add(a);
     }
-    
 
     /**
      *
@@ -71,35 +74,41 @@ public class Viini implements Comparable<Viini> {
     public List<Arvostelu> getArvostelut() {
         return arvostelut;
     }
-    
+
     /**
-     *Metodi palauttaa viinin saamat arviot (arvosanat ja niihin liittyvät kommentit).
+     * Metodi palauttaa viinin saamat arviot (arvosanat ja niihin liittyvät
+     * kommentit).
+     *
      * @return
      */
     public String stringArvostelut() {
         String arviot = "";
         for (Arvostelu arvostelu : arvostelut) {
-            arviot += arvostelu.toString()+"\n\n";
-        } return arviot;
+            arviot += arvostelu.toString() + "\n\n";
+        }
+        return arviot;
     }
 
     /**
-     *Metodi palauttaa viinin saamien arvostelujen keskiarvon.
+     * Metodi palauttaa viinin saamien arvostelujen keskiarvon.
+     *
      * @return
      */
     public double getKeskiarvo() {
-        int summa = 0;
+        double summa = 0;
         for (Arvostelu a : arvostelut) {
             summa += a.getArvosana();
         }
-        if(arvostelut.size()==0) {
+        if (arvostelut.size() == 0) {
             return 0;
-        }        
-        return (double) summa / arvostelut.size();
+        }
+        summa = summa / arvostelut.size();
+        return (double) Math.round(summa * 100) / 100;
     }
 
     /**
-     *Metodi palauttaa viinin nimen.
+     * Metodi palauttaa viinin nimen.
+     *
      * @return
      */
     public String getNimi() {
@@ -107,7 +116,8 @@ public class Viini implements Comparable<Viini> {
     }
 
     /**
-     *Metodi palauttaa viinin rypälelajikkeen.
+     * Metodi palauttaa viinin rypälelajikkeen.
+     *
      * @return
      */
     public String getLajike() {
@@ -115,7 +125,8 @@ public class Viini implements Comparable<Viini> {
     }
 
     /**
-     *Metodi palauttaa viinin valmistusmaan.
+     * Metodi palauttaa viinin valmistusmaan.
+     *
      * @return
      */
     public String getMaa() {
@@ -123,7 +134,8 @@ public class Viini implements Comparable<Viini> {
     }
 
     /**
-     *Metodi palauttaa viinin valmistusvuoden.
+     * Metodi palauttaa viinin valmistusvuoden.
+     *
      * @return
      */
     public String getVuosi() {
@@ -131,35 +143,39 @@ public class Viini implements Comparable<Viini> {
     }
 
     /**
-     *Metodi palauttaa viinin tyypin (puna- tai valkoviini).
+     * Metodi palauttaa viinin tyypin (puna- tai valkoviini).
+     *
      * @return
      */
     public String getTyyppi() {
         return tyyppi;
     }
-   
 
     /**
-     *Metodi palauttaa viinin tiedot sellaisessa muodossa, että viini voidaan tallentaa tiedostoon.
+     * Metodi palauttaa viinin tiedot sellaisessa muodossa, että viini voidaan
+     * tallentaa tiedostoon.
+     *
      * @return
      */
     public String getTiedostomuoto() {
-        return this.tyyppi + ":" + this.nimi + ":" + this.lajike + ":" + this.maa + ":" + this.vuosi+"\n";
+        return this.tyyppi + ":" + this.nimi + ":" + this.lajike + ":" + this.maa + ":" + this.vuosi + "\n";
     }
 
     /**
-     *Metodi palauttaa viinin nimen ja arvostelut sellaisessa muodossa, että ne voidaan tallentaa tiedostoon.
+     * Metodi palauttaa viinin nimen ja arvostelut sellaisessa muodossa, että ne
+     * voidaan tallentaa tiedostoon.
+     *
      * @return
      */
     public String getNimiJaArvosteluTiedostomuoto() {
         String arviot = "";
         for (Arvostelu a : arvostelut) {
-            if(arvostelut.size()>1) {
-            arviot += this.nimi + ":" + a.getTiedostomuoto() + "\n";
-            } else  {
-                arviot = this.nimi + ":" + a.getTiedostomuoto()+"\n";
-            } 
+            if (arvostelut.size() > 1) {
+                arviot += this.nimi + ":" + a.getTiedostomuoto() + "\n";
+            } else {
+                arviot = this.nimi + ":" + a.getTiedostomuoto() + "\n";
             }
+        }
         return arviot;
     }
 
@@ -172,7 +188,7 @@ public class Viini implements Comparable<Viini> {
         } else {
             return 0;
         }
-    }    
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -183,7 +199,7 @@ public class Viini implements Comparable<Viini> {
             return false;
         }
         final Viini other = (Viini) obj;
-        
+
         if (!Objects.equals(this.nimi, other.nimi)) {
             return false;
         }
@@ -201,11 +217,9 @@ public class Viini implements Comparable<Viini> {
         }
         return true;
     }
-    
-   
 
     @Override
     public String toString() {
-        return "\nTyyppi: " + this.tyyppi + "\n" + "Nimi: " + this.nimi + "\n" + "Lajike: " + this.lajike + "\n" + "Maa: " + this.maa + "\n" + "Vuosi: " + this.vuosi+"\n";
+        return "\nTyyppi: " + this.tyyppi + "\n" + "Nimi: " + this.nimi + "\n" + "Lajike: " + this.lajike + "\n" + "Maa: " + this.maa + "\n" + "Vuosi: " + this.vuosi + "\n";
     }
 }

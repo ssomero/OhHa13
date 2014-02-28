@@ -10,7 +10,10 @@ import javax.swing.JPanel;
 import muistio.tiedosto.TiedostoWelho;
 
 /**
- *
+ * Käyttöliittymä kutsuu tätä luokkaa. ValikkoPanel 
+ * luo valikkoikkunan nappulat, joilla valitaan mitä halutaan tehdä.
+ * Tämä luokka puolestaan kutsuu eri kuuntelijoita, riippuen mitä
+ * nappulaa painetaan.
  * @author Sonja
  */
 public class ValikkoPanel extends JPanel {
@@ -28,14 +31,18 @@ public class ValikkoPanel extends JPanel {
         JButton hae = new JButton("Hae");
         JButton lisaa = new JButton("Lisää viini");    
         JButton arvioi = new JButton("Arvioi muistion viini");
+        JButton poista = new JButton("Poista muistion viini");
         add(hae);
         add(lisaa);
         add(arvioi);
+        add(poista);
         HakemisenKuuntelija hkuuntelija = new HakemisenKuuntelija(tw, hae);
         hae.addActionListener(hkuuntelija);
         LisaamisenKuuntelija lkuuntelija = new LisaamisenKuuntelija(tw, lisaa);
         lisaa.addActionListener(lkuuntelija);
         ArvioimisenKuuntelija akuuntelija = new ArvioimisenKuuntelija(tw, arvioi);
-        arvioi.addActionListener(akuuntelija);        
+        arvioi.addActionListener(akuuntelija);
+        PoistamisenKuuntelija pkuuntelija = new PoistamisenKuuntelija(tw, poista);
+        poista.addActionListener(pkuuntelija);
     }
 }
