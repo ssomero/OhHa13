@@ -7,3 +7,8 @@ talletettu viinej‰ ja niiden arvosteluja, lis‰‰ TiedostoWelho n‰m‰ viinit&arvost
 
 ViiniKellarissa on rajaton m‰‰r‰ viinej‰. ViiniKellarissa olevilla veill‰ voi olla rajaton m‰‰r‰ arvosteluja, kuitenkin v‰hint‰‰n
 yksi, sill‰ viini‰ lis‰tess‰ arvosana on pakko antaa.
+
+T‰ll‰ hetkell‰ viinien poistaminen onnistuu kunnolla vain, jos viineill‰ ei ole samaa nime‰. Viinej‰ nimitt‰in haetaan poistossa
+t‰ll‰ hetkell‰ nimen mukaan. 
+Tulevaisuudessa ohjelmaa voisikin kehitell‰ lis‰‰m‰ll‰ poistamiseen vaadittavan salasanan ja myˆs siten, ett‰ viinien lis‰‰miset 
+p‰ivittyv‰t heti etusivulle.

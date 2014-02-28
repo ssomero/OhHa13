@@ -4,14 +4,13 @@
  
  Toteutetaan muistio, jonka avulla pidetään kirjaa erilaisista viineistä. 
  Viineillä on nimi, valmistusmaa, valmistusvuosi ja rypälelajike. Lisäksi viinit jaetaan puna- ja valkoviineihin.
- Ylläpitäjä voi lisätä, hakea, poistaa viinejä sekä antaa niille arvosteluja numeerisesti sekä tekstuaalisesti. 
- Muut käyttäjät voivat lisätä, hakea ja arvostella viinejä.
-  
+ Käyttäjät voivat lisätä, hakea, poistaa viinejä sekä antaa niille arvosteluja numeerisesti sekä tekstuaalisesti. 
+   
  Viinejä voi hakea nimen, maan tai sen mukaan, etsiikö puna- vai valkoviiniä. 
- Lisäksi viinit voidaan listata arvostelujen mukaisessa parhausjärjestyksessä.
+ Lisäksi viinit listatataan arvostelujen mukaisessa parhausjärjestyksessä.
 
 
- Käyttäjät: ylläpitäjä, käyttäjä
+ Käyttäjät: kaikki
 
  Kaikkien käyttäjien toiminnot:
 
@@ -20,8 +19,6 @@
  * viinin hakeminen maalla
  * viinin hakeminen puna/valkoviininä
  * viinien listaus parhausjärjestyksessä
-
- Ylläpitäjän toiminnot:
  * viinin poistaminen muistiosta
 
 
